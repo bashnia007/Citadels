@@ -16,15 +16,13 @@ using System.Windows.Shapes;
 namespace CitadelsApp
 {
     /// <summary>
-    /// Interaction logic for MainWindow.xaml
+    /// Interaction logic for Lobby.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class Lobby : UserControl
     {
-        public MainWindow()
+        public Lobby()
         {
             InitializeComponent();
-            var mainVm = new MainViewModel();
-            DataContext = mainVm;
         }
     }
 }

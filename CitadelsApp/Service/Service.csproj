@@ -62,9 +62,7 @@
     <None Include="App.config" />
     <None Include="packages.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Database\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <ProjectReference Include="..\CommonLIbrary\CommonLIbrary.csproj">
       <Project>{b514d1b9-ce26-463f-a730-f2f397cd68ad}</Project>

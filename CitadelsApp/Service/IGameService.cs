@@ -15,5 +15,9 @@ namespace Service
         void SelectRole(int roleId);
         [OperationContract]
         List<Role> GetAvaivableRoles(int gameId);
+        [OperationContract]
+        void CreateGame(string gameTitle, int maxPlayers);
+        [OperationContract]
+        List<Game> GetAvaivableGames();
     }
 }
