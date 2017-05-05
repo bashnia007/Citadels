@@ -16,10 +16,19 @@
             <RowDefinition/>
             <RowDefinition/>
         </Grid.RowDefinitions>
-        <ListBox Grid.Column="0"
+        <ListView Grid.Column="0"
                  Grid.Row="0"
                  Grid.ColumnSpan="3"
-                 ItemsSource="{Binding Games}"></ListBox>
+                 ItemsSource="{Binding Games}">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Header="Название игры" 
+                                    DisplayMemberBinding="{Binding Name}"/>
+                    <GridViewColumn Header="Максимум игроков"
+                                    DisplayMemberBinding="{Binding MaxPlayersCount}"/>
+                </GridView>
+            </ListView.View>
+        </ListView>
         <Button Grid.Column="0"
                 Grid.Row="1"
                 Content="Обновить"

@@ -6,6 +6,7 @@ namespace Service
     public class GameService : IGameService
     {
         public List<Game> Games = new List<Game>();
+        
         public void StartGame()
         {
             
@@ -40,8 +41,6 @@ namespace Service
 
         public List<Game> GetAvaivableGames()
         {
-            CreateGame("123", 5);
-            CreateGame("qqq", 7);
             return Games;
         }
     }

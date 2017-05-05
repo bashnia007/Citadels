@@ -4,7 +4,9 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 using System.Windows.Input;
+using CitadelsApp.AdditionalWindows;
 using CitadelsApp.DAL;
 using CitadelsApp.KindOfMagic;
 using CommonLIbrary;
@@ -13,13 +15,19 @@ namespace CitadelsApp
 {
     public class LobbyViewModel : PropertyChangedBase
     {
+        #region Privates
+
+        private Window _dialogWindow;
+        #endregion
         #region Properties
         public ObservableCollection<Game> Games { get; set; }
+        public Game NewGame { get; set; }
         #endregion
 
         #region Constructors
         public LobbyViewModel()
         {
+            Init();
         }
         #endregion
 
@@ -67,9 +75,15 @@ namespace CitadelsApp
         public ICommand CreateGameCommand => _createGameCommand ?? 
                                              (_createGameCommand = new RelayCommand(ExecuteCreateGameCommand, CanExecuteCreateGameCommand));
 
-        private void ExecuteCreateGameCommand(object param)
+        private async void ExecuteCreateGameCommand(object param)
         {
-            
+            NewGame = new Game();
+            _dialogWindow = new CreateGame { DataContext = this };
+            if (_dialogWindow.ShowDialog() == true)
+            {
+                await ServiceProxy.CreateGame(NewGame.Name, NewGame.MaxPlayersCount);
+            }
+            ExecuteRefreshCommand(param);
         }
 
         private bool CanExecuteCreateGameCommand(object param)
@@ -79,6 +93,35 @@ namespace CitadelsApp
 
         #endregion
 
+        #region SaveDialogCommand
+
+        private RelayCommand _saveDialogCommand;
+        public ICommand SaveDialogCommand => _saveDialogCommand ?? 
+                                            (_saveDialogCommand = new RelayCommand(ExecuteSaveDialogCommand, CanExecuteSaveDialogCommand));
+
+        private void ExecuteSaveDialogCommand(object param)
+        {
+            if (_dialogWindow != null)
+            {
+                _dialogWindow.DialogResult = true;
+                _dialogWindow.Close();
+            }
+        }
+
+        private bool CanExecuteSaveDialogCommand(object param)
+        {
+            return true;
+        }
+        #endregion
+
+        #endregion
+
+        #region Members
+
+        private void Init()
+        {
+            ExecuteRefreshCommand(null);
+        }
         #endregion
     }
 }

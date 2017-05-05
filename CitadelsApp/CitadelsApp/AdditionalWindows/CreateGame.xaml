@@ -1,0 +1,39 @@
+﻿<Window x:Class="CitadelsApp.AdditionalWindows.CreateGame"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:CitadelsApp.AdditionalWindows"
+        mc:Ignorable="d"
+        Title="Создание игры" Height="300" Width="300">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <TextBlock Grid.Row="0"
+                 Grid.Column="0"
+                 Text="Имя игры" />
+        <TextBlock Grid.Row="0"
+                 Grid.Column="1"
+                 Text="Количество игроков"></TextBlock>
+        <TextBox Grid.Column="0"
+                   Grid.Row="1"
+                   Text="{Binding NewGame.Name}"/>
+        <TextBox Grid.Column="1"
+                   Grid.Row="1"
+                   Text="{Binding NewGame.MaxPlayersCount}"/>
+        <Button Grid.Column="0"
+                Grid.Row="2"
+                Content="Создать"
+                Command="{Binding SaveDialogCommand}"/>
+        <Button Grid.Column="1"
+                Grid.Row="2"
+                Content="Отмена" />
+    </Grid>
+</Window>

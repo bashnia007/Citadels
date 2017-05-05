@@ -18,5 +18,20 @@ namespace CitadelsApp.DAL
                 return data.ToList();
             }
         }
+
+        public static async Task CreateGame(string gameTitle, int maxPlayers)
+        {
+            using (var proxy = new GameServiceClient())
+            {
+                await proxy.CreateGameAsync(gameTitle, maxPlayers);
+            }
+        }
+
+        public static async Task Connect()
+        {
+            using (var proxy = new GameServiceClient())
+            {
+            }
+        }
     }
 }
