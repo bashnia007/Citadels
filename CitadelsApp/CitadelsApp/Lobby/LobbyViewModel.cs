@@ -8,8 +8,8 @@ using System.Windows;
 using System.Windows.Input;
 using CitadelsApp.AdditionalWindows;
 using CitadelsApp.DAL;
+using CitadelsApp.GameServiceReference;
 using CitadelsApp.KindOfMagic;
-using CommonLIbrary;
 
 namespace CitadelsApp
 {
@@ -81,7 +81,7 @@ namespace CitadelsApp
             _dialogWindow = new CreateGame { DataContext = this };
             if (_dialogWindow.ShowDialog() == true)
             {
-                await ServiceProxy.CreateGame(NewGame.Name, NewGame.MaxPlayersCount);
+                await ServiceProxy.CreateGame(NewGame.Description, NewGame.PlayersCount, 1);
             }
             ExecuteRefreshCommand(param);
         }

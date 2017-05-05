@@ -1,51 +1,34 @@
 <?xml version="1.0" encoding="utf-8"?>
 <xs:schema xmlns:tns="http://tempuri.org/" elementFormDefault="qualified" targetNamespace="http://tempuri.org/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
-  <xs:import schemaLocation="http://localhost:9090/?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/CommonLIbrary" />
-  <xs:element name="StartGame">
-    <xs:complexType>
-      <xs:sequence />
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="StartGameResponse">
-    <xs:complexType>
-      <xs:sequence />
-    </xs:complexType>
-  </xs:element>
+  <xs:import schemaLocation="http://localhost:9090/?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/Service.Database" />
   <xs:element name="Login">
     <xs:complexType>
       <xs:sequence>
-        <xs:element minOccurs="0" name="username" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="login" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="password" nillable="true" type="xs:string" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="LoginResponse">
     <xs:complexType>
-      <xs:sequence />
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="SelectRole">
-    <xs:complexType>
       <xs:sequence>
-        <xs:element minOccurs="0" name="roleId" type="xs:int" />
+        <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/Service.Database" minOccurs="0" name="LoginResult" nillable="true" type="q1:User" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
-  <xs:element name="SelectRoleResponse">
-    <xs:complexType>
-      <xs:sequence />
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="GetAvaivableRoles">
+  <xs:element name="Register">
     <xs:complexType>
       <xs:sequence>
-        <xs:element minOccurs="0" name="gameId" type="xs:int" />
+        <xs:element minOccurs="0" name="login" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="password" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="email" nillable="true" type="xs:string" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
-  <xs:element name="GetAvaivableRolesResponse">
+  <xs:element name="RegisterResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/CommonLIbrary" minOccurs="0" name="GetAvaivableRolesResult" nillable="true" type="q1:ArrayOfRole" />
+        <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/Service.Database" minOccurs="0" name="RegisterResult" nillable="true" type="q2:User" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -54,6 +37,7 @@
       <xs:sequence>
         <xs:element minOccurs="0" name="gameTitle" nillable="true" type="xs:string" />
         <xs:element minOccurs="0" name="maxPlayers" type="xs:int" />
+        <xs:element minOccurs="0" name="creatorId" type="xs:int" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -70,8 +54,30 @@
   <xs:element name="GetAvaivableGamesResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/CommonLIbrary" minOccurs="0" name="GetAvaivableGamesResult" nillable="true" type="q2:ArrayOfGame" />
+        <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/Service.Database" minOccurs="0" name="GetAvaivableGamesResult" nillable="true" type="q3:ArrayOfGame" />
       </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="StartGame">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="StartGameResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SelectRole">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="roleId" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SelectRoleResponse">
+    <xs:complexType>
+      <xs:sequence />
     </xs:complexType>
   </xs:element>
 </xs:schema>

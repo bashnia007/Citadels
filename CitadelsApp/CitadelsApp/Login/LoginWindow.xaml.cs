@@ -22,6 +22,8 @@ namespace CitadelsApp.Login
         public LoginWindow()
         {
             InitializeComponent();
+            var vm = new LoginViewModel();
+            DataContext = vm;
         }
     }
 }

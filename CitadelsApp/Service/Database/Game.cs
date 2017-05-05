@@ -9,6 +9,7 @@ namespace Service.Database
     public class Game
     {
         public int Id { get; set; }
+        public string Description { get; set; }
         public int CreatorId { get; set; }
         public List<User> Players { get; set; }
         public bool IsAvaivable { get; set; }

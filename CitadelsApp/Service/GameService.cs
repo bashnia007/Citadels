@@ -32,14 +32,15 @@ namespace Service
             return null;
         }
 
-        public User CreateUser(string login, string password)
+        public User Register(string login, string password, string email)
         {
             using (var context = new DatabaseContext())
             {
                 var user = context.Users.Add(new User
                 {
                     Login = login,
-                    Password = password
+                    Password = password,
+                    Email = email
                 });
                 context.SaveChanges();
                 return user;

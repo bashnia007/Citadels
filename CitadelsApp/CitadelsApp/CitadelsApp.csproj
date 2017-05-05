@@ -79,6 +79,7 @@
       <DependentUpon>Lobby.xaml</DependentUpon>
     </Compile>
     <Compile Include="Lobby\LobbyViewModel.cs" />
+    <Compile Include="Login\LoginViewModel.cs" />
     <Compile Include="Login\LoginWindow.xaml.cs">
       <DependentUpon>LoginWindow.xaml</DependentUpon>
     </Compile>
@@ -138,6 +139,12 @@
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
     <AppDesigner Include="Properties\" />
+    <None Include="Service References\GameServiceReference\CitadelsApp.GameServiceReference.Game.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\GameServiceReference\CitadelsApp.GameServiceReference.User.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
     <None Include="Service References\GameServiceReference\GameService.wsdl" />
     <None Include="Service References\GameServiceReference\item.xsd">
       <SubType>Designer</SubType>

@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using CitadelsApp.GameServiceReference;
 using CommonLIbrary;
+using Game = CitadelsApp.GameServiceReference.Game;
 
 namespace CitadelsApp.DAL
 {
@@ -19,11 +20,11 @@ namespace CitadelsApp.DAL
             }
         }
 
-        public static async Task CreateGame(string gameTitle, int maxPlayers)
+        public static async Task CreateGame(string gameTitle, int maxPlayers, int creatorId)
         {
             using (var proxy = new GameServiceClient())
             {
-                await proxy.CreateGameAsync(gameTitle, maxPlayers);
+                await proxy.CreateGameAsync(gameTitle, maxPlayers, creatorId);
             }
         }
 
@@ -31,6 +32,24 @@ namespace CitadelsApp.DAL
         {
             using (var proxy = new GameServiceClient())
             {
+            }
+        }
+
+        public static User Login(string login, string password)
+        {
+            using (var proxy = new GameServiceClient())
+            {
+                var user = proxy.Login(login, password);
+                return user;
+            }
+        }
+
+        public static User Register(string login, string password, string email)
+        {
+            using (var proxy = new GameServiceClient())
+            {
+                var user = proxy.Register(login, password, email);
+                return user;
             }
         }
     }

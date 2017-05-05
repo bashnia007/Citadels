@@ -8,14 +8,18 @@ namespace Service
     public interface IGameService
     {
         [OperationContract]
-        void StartGame();
+        User Login(string login, string password);
         [OperationContract]
-        void Login(string login, string password);
+        User Register(string login, string password, string email);
         [OperationContract]
-        void SelectRole(int roleId);
-        [OperationContract]
+
         void CreateGame(string gameTitle, int maxPlayers, int creatorId);
         [OperationContract]
         List<Game> GetAvaivableGames();
+
+        [OperationContract]
+        void StartGame();
+        [OperationContract]
+        void SelectRole(int roleId);
     }
 }
