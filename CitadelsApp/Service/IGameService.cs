@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.ServiceModel;
-using CommonLIbrary;
+using Service.Database;
 
 namespace Service
 {
@@ -10,13 +10,11 @@ namespace Service
         [OperationContract]
         void StartGame();
         [OperationContract]
-        void Login(string username);
+        void Login(string login, string password);
         [OperationContract]
         void SelectRole(int roleId);
         [OperationContract]
-        List<Role> GetAvaivableRoles(int gameId);
-        [OperationContract]
-        void CreateGame(string gameTitle, int maxPlayers);
+        void CreateGame(string gameTitle, int maxPlayers, int creatorId);
         [OperationContract]
         List<Game> GetAvaivableGames();
     }
