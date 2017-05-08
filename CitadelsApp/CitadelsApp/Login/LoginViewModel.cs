@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Input;
@@ -17,6 +18,14 @@ namespace CitadelsApp.Login
         public string Password { get; set; }
         public string Email { get; set; }
         public Window View { get; set; }
+        public Regex EmailRegex { get; set; }
+        #endregion
+
+        #region Constructors
+
+        public LoginViewModel()
+        {
+        }
         #endregion
 
         #region Commands
@@ -59,6 +68,10 @@ namespace CitadelsApp.Login
 
         #endregion
 
+        #endregion
+
+        #region Members
+        
         #endregion
     }
 }

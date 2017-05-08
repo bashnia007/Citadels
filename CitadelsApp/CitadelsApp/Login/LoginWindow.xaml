@@ -4,6 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:CitadelsApp.Login"
+        xmlns:validationRules="clr-namespace:CitadelsApp.ValidationRules"
         mc:Ignorable="d"
         Title="{Binding Title}" Height="300" Width="300">
     <Window.Resources>
@@ -42,8 +43,16 @@
                    Style="{DynamicResource TextBlock.CommonStyle}"/>
         <TextBox Grid.Column="1"
                  Grid.Row="2"
-                 Text="{Binding Email}"
-                 Style="{DynamicResource TextBox.CommonStyle}"/>
+                 Style="{DynamicResource TextBox.CommonStyle}">
+            <TextBox.Text>
+                <Binding Path="Email"
+                         UpdateSourceTrigger="PropertyChanged">
+                    <Binding.ValidationRules>
+                        <validationRules:EmailValidationRule Message="Недопустимый email"/>
+                    </Binding.ValidationRules>
+                </Binding>
+            </TextBox.Text>
+        </TextBox>
         <Button Grid.Column="0"
                 Grid.Row="3"
                 Content="Войти"
@@ -51,7 +60,7 @@
                 Style="{DynamicResource Button.CommonStyle}"/>
         <Button Grid.Column="1"
                 Grid.Row="3"
-                Content="Отмена"
+                Content="Регистрация"
                 Command="{Binding RegisterCommand}"
                 Style="{DynamicResource Button.CommonStyle}"/>
     </Grid>
