@@ -27,7 +27,10 @@ namespace CitadelsApp
         public MainViewModel()
         {
             _dialogWindow = new LoginWindow {DataContext = this};
-            _dialogWindow.ShowDialog();
+            if (_dialogWindow.ShowDialog() != true)
+            {
+                Application.Current.MainWindow.Close();
+            }
         }
 
 

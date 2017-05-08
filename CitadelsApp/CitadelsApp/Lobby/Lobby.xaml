@@ -6,6 +6,9 @@
              xmlns:local="clr-namespace:CitadelsApp"
              mc:Ignorable="d" 
              d:DesignHeight="300" d:DesignWidth="300">
+    <UserControl.Resources>
+        <ResourceDictionary Source="../Themes/CommonStyles.xaml"></ResourceDictionary>
+    </UserControl.Resources>
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition/>
@@ -32,14 +35,17 @@
         <Button Grid.Column="0"
                 Grid.Row="1"
                 Content="Обновить"
-                Command="{Binding RefreshCommand}"/>
+                Command="{Binding RefreshCommand}"
+                Style="{DynamicResource Button.CommonStyle}"/>
         <Button Grid.Column="1"
                 Grid.Row="1"
                 Content="Подключиться"
-                Command="{Binding ConnectCommand}"/>
+                Command="{Binding ConnectCommand}"
+                Style="{DynamicResource Button.CommonStyle}"/>
         <Button Grid.Column="2"
                 Grid.Row="1"
                 Content="Создать игру"
-                Command="{Binding CreateGameCommand}"/>
+                Command="{Binding CreateGameCommand}"
+                Style="{DynamicResource Button.CommonStyle}"/>
     </Grid>
 </UserControl>

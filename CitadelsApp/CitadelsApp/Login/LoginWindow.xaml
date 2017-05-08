@@ -6,6 +6,9 @@
         xmlns:local="clr-namespace:CitadelsApp.Login"
         mc:Ignorable="d"
         Title="{Binding Title}" Height="300" Width="300">
+    <Window.Resources>
+        <ResourceDictionary Source="../Themes/CommonStyles.xaml"></ResourceDictionary>
+    </Window.Resources>
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition/>
@@ -19,29 +22,37 @@
         </Grid.RowDefinitions>
         <TextBlock Grid.Column="0"
                    Grid.Row="0"
-                   Text="Логин" />
+                   Text="Логин" 
+                   Style="{DynamicResource TextBlock.CommonStyle}"/>
         <TextBox Grid.Column="1"
                  Grid.Row="0"
-                 Text="{Binding Login}"/>
+                 Text="{Binding Login}"
+                 Style="{DynamicResource TextBox.CommonStyle}"/>
         <TextBlock Grid.Column="0"
                    Grid.Row="1"
-                   Text="Пароль"/>
+                   Text="Пароль"
+                   Style="{DynamicResource TextBlock.CommonStyle}"/>
         <TextBox Grid.Column="1"
                  Grid.Row="1"
-                 Text="{Binding Password}"/>
+                 Text="{Binding Password}"
+                 Style="{DynamicResource TextBox.CommonStyle}"/>
         <TextBlock Grid.Column="0"
                    Grid.Row="2"
-                   Text="Email"/>
+                   Text="Email"
+                   Style="{DynamicResource TextBlock.CommonStyle}"/>
         <TextBox Grid.Column="1"
                  Grid.Row="2"
-                 Text="{Binding Email}"/>
+                 Text="{Binding Email}"
+                 Style="{DynamicResource TextBox.CommonStyle}"/>
         <Button Grid.Column="0"
                 Grid.Row="3"
                 Content="Войти"
-                Command="{Binding LoginCommand}"/>
+                Command="{Binding LoginCommand}"
+                Style="{DynamicResource Button.CommonStyle}"/>
         <Button Grid.Column="1"
                 Grid.Row="3"
                 Content="Отмена"
-                Command="{Binding RegisterCommand}"/>
+                Command="{Binding RegisterCommand}"
+                Style="{DynamicResource Button.CommonStyle}"/>
     </Grid>
 </Window>
