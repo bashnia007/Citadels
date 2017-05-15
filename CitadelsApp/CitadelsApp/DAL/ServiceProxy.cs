@@ -4,14 +4,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using CitadelsApp.GameServiceReference;
-using CommonLIbrary;
 using Game = CitadelsApp.GameServiceReference.Game;
 
 namespace CitadelsApp.DAL
 {
     public static class ServiceProxy
     {
-        public static async Task<List<Game>> GetAvaivableGames()
+        public static async Task<List<GameServiceReference.Game>> GetAvaivableGames()
         {
             using (var proxy = new GameServiceClient())
             {

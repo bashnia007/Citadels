@@ -20,8 +20,8 @@ namespace CitadelsApp
         private Window _dialogWindow;
         #endregion
         #region Properties
-        public ObservableCollection<Game> Games { get; set; }
-        public Game NewGame { get; set; }
+        public ObservableCollection<GameServiceReference.Game> Games { get; set; }
+        public GameServiceReference.Game NewGame { get; set; }
         #endregion
 
         #region Constructors
@@ -42,7 +42,7 @@ namespace CitadelsApp
         public async void ExecuteRefreshCommand(object param)
         {
             var data = await ServiceProxy.GetAvaivableGames();
-            Games = new ObservableCollection<Game>(data);
+            Games = new ObservableCollection<GameServiceReference.Game>(data);
         }
 
         private bool CanExecuteRefreshCommand(object param)
@@ -77,7 +77,7 @@ namespace CitadelsApp
 
         private async void ExecuteCreateGameCommand(object param)
         {
-            NewGame = new Game();
+            NewGame = new GameServiceReference.Game();
             _dialogWindow = new CreateGame { DataContext = this };
             if (_dialogWindow.ShowDialog() == true)
             {

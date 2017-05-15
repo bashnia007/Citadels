@@ -7,8 +7,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CitadelsApp", "CitadelsApp\
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Service", "Service\Service.csproj", "{FBA81384-B835-4D65-A644-8E0E4A7C55C1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CommonLIbrary", "CommonLIbrary\CommonLIbrary.csproj", "{B514D1B9-CE26-463F-A730-F2F397CD68AD}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -23,10 +21,6 @@ Global
 		{FBA81384-B835-4D65-A644-8E0E4A7C55C1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FBA81384-B835-4D65-A644-8E0E4A7C55C1}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{FBA81384-B835-4D65-A644-8E0E4A7C55C1}.Release|Any CPU.Build.0 = Release|Any CPU
-		{B514D1B9-CE26-463F-A730-F2F397CD68AD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{B514D1B9-CE26-463F-A730-F2F397CD68AD}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{B514D1B9-CE26-463F-A730-F2F397CD68AD}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{B514D1B9-CE26-463F-A730-F2F397CD68AD}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

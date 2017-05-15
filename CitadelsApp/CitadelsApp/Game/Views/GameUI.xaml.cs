@@ -13,7 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace CitadelsApp.Game
+namespace CitadelsApp.Game.Views
 {
     /// <summary>
     /// Interaction logic for GameUI.xaml

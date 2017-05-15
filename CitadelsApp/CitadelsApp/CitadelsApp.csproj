@@ -72,7 +72,10 @@
       <DependentUpon>CreateGame.xaml</DependentUpon>
     </Compile>
     <Compile Include="DAL\ServiceProxy.cs" />
-    <Compile Include="Game\GameUI.xaml.cs">
+    <Compile Include="Game\Views\Card.xaml.cs">
+      <DependentUpon>Card.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Game\Views\GameUI.xaml.cs">
       <DependentUpon>GameUI.xaml</DependentUpon>
     </Compile>
     <Compile Include="KindOfMagic\MagicAttribute.cs" />
@@ -82,7 +85,6 @@
       <DependentUpon>Lobby.xaml</DependentUpon>
     </Compile>
     <Compile Include="Lobby\LobbyViewModel.cs" />
-    <Compile Include="Login\LoginViewModel.cs" />
     <Compile Include="Login\LoginWindow.xaml.cs">
       <DependentUpon>LoginWindow.xaml</DependentUpon>
     </Compile>
@@ -97,7 +99,11 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Game\GameUI.xaml">
+    <Page Include="Game\Views\Card.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Game\Views\GameUI.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -170,12 +176,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\CommonLIbrary\CommonLIbrary.csproj">
-      <Project>{b514d1b9-ce26-463f-a730-f2f397cd68ad}</Project>
-      <Name>CommonLIbrary</Name>
-    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <WCFMetadata Include="Service References\" />

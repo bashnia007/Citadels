@@ -1,6 +1,5 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
-using CommonLIbrary;
 using Service.Database;
 using Game = Service.Database.Game;
 
@@ -27,10 +26,10 @@ namespace Service
             
         }
         
-        public List<Role> GetAvaivableRoles(int gameId)
+        /*public List<Role> GetAvaivableRoles(int gameId)
         {
             return null;
-        }
+        }*/
 
         public User Register(string login, string password, string email)
         {

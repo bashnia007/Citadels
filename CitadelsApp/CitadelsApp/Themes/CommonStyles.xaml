@@ -9,6 +9,8 @@
                 Value="120"/>
         <Setter Property="FontSize"
                 Value="14"/>
+        <Setter Property="Margin"
+                Value="10" />
     </Style>
     
     <Style x:Key="TextBox.CommonStyle"
@@ -21,6 +23,8 @@
                 Value="14"/>
         <Setter Property="VerticalContentAlignment"
                 Value="Center" />
+        <Setter Property="Margin"
+                Value="10" />
     </Style>
     
     <Style x:Key="TextBlock.CommonStyle"
@@ -33,5 +37,33 @@
                 Value="14" />
         <Setter Property="VerticalAlignment"
                 Value="Center" />
+        <Setter Property="Margin"
+                Value="10" />
+    </Style>
+
+    <Style x:Key="TextBlock.AlertStyle"
+           TargetType="TextBlock">
+        <Setter Property="Foreground"
+                Value="Red"/>
+        <Setter Property="Width"
+                Value="100"/>
+        <Setter Property="VerticalAlignment"
+                Value="Top"/>
+        <Setter Property="FontSize"
+                Value="12" />
+        <Setter Property="TextWrapping"
+                Value="Wrap" />
+        <Setter Property="HorizontalAlignment"
+                Value="Center"/>
+    </Style>
+    
+    <Style x:Key="CheckBox.CommonStyle"
+           TargetType="CheckBox">
+        <Setter Property="VerticalAlignment"
+                Value="Center"/>
+        <Setter Property="Margin"
+                Value="10" />
+        <Setter Property="FontSize"
+                Value="14" />
     </Style>
 </ResourceDictionary>

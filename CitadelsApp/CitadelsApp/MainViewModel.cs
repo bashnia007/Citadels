@@ -5,7 +5,9 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Input;
+using System.Windows.Threading;
 using CitadelsApp.DAL;
+using CitadelsApp.GameServiceReference;
 using CitadelsApp.KindOfMagic;
 using CitadelsApp.Login;
 
@@ -22,11 +24,13 @@ namespace CitadelsApp
         public string Password { get; set; }
         public string Email { get; set; }
         public object CurrentContent { get; set; }
+        public Visibility IncorrectAuth { get; set; }
         #endregion
 
         public MainViewModel()
         {
             _dialogWindow = new LoginWindow {DataContext = this};
+            IncorrectAuth = Visibility.Collapsed;
             if (_dialogWindow.ShowDialog() != true)
             {
                 Application.Current.MainWindow.Close();
@@ -41,14 +45,23 @@ namespace CitadelsApp
         public ICommand LoginCommand => _loginCommand ??
                                         (_loginCommand = new RelayCommand(ExecuteLoginCommand, CanExecuteLoginCommand));
 
-        private void ExecuteLoginCommand(object param)
+        private async void ExecuteLoginCommand(object param)
         {
-            var user = ServiceProxy.Login(Login, Password);
+            User user = null;
+            await Task.Run(() =>
+            {
+                user = ServiceProxy.Login(Login, Password);
+            });
             if (user != null)
             {
+                _dialogWindow.DialogResult = true;
                 _dialogWindow.Close();
                 var lobbyViewModel = new LobbyViewModel();
                 CurrentContent = new Lobby { DataContext = lobbyViewModel };
+            }
+            else
+            {
+                IncorrectAuth = Visibility.Visible;
             }
         }
 
@@ -64,9 +77,24 @@ namespace CitadelsApp
         public ICommand RegisterCommand => _registerCommand ??
                                            (_registerCommand = new RelayCommand(ExecuteRegisterCommand, CanExecuteRegisterCommand));
 
-        private void ExecuteRegisterCommand(object param)
+        private async void ExecuteRegisterCommand(object param)
         {
-            var user = ServiceProxy.Register(Login, Password, Email);
+            User user = null;
+            await Task.Run(() =>
+            {
+                user = ServiceProxy.Register(Login, Password, Email);
+            });
+            if (user != null)
+            {
+                _dialogWindow.DialogResult = true;
+                _dialogWindow.Close();
+                var lobbyViewModel = new LobbyViewModel();
+                CurrentContent = new Lobby { DataContext = lobbyViewModel };
+            }
+            else
+            {
+                IncorrectAuth = Visibility.Visible;
+            }
         }
 
         private bool CanExecuteRegisterCommand(object param)

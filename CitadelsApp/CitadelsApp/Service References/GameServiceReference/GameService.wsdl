@@ -524,7 +524,7 @@
       <wsa10:EndpointReference>
         <wsa10:Address>http://localhost:9090/</wsa10:Address>
         <Identity xmlns="http://schemas.xmlsoap.org/ws/2006/02/addressingidentity">
-          <Upn>Kavokin.Al@digdes.com</Upn>
+          <Upn>DESKTOP-6KIM8BE\kavok</Upn>
         </Identity>
       </wsa10:EndpointReference>
     </wsdl:port>
