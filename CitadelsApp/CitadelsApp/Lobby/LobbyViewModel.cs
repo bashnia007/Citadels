@@ -24,6 +24,7 @@ namespace CitadelsApp
         #region Properties
         public ObservableCollection<GameServiceReference.Game> Games { get; set; }
         public GameServiceReference.Game NewGame { get; set; }
+        public GameServiceReference.Game SelectedGame { get; set; }
         #endregion
 
         #region Constructors
@@ -62,12 +63,20 @@ namespace CitadelsApp
 
         private async void ExecuteConnectCommand(object param)
         {
-            
+            GameServiceReference.Game game = null;
+            await Task.Run(() =>
+            {
+                game = ServiceProxy.Connect(SelectedGame.Id, _userId);
+            });
+            if (game != null)
+            {
+                var gameViewModel = new GameViewModel(game, _userId);
+            }
         }
 
         private bool CanExecuteConnectCommand(object param)
         {
-            return true;
+            return SelectedGame != null;
         }
 
         #endregion

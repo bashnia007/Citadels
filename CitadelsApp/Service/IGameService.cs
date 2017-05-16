@@ -18,7 +18,7 @@ namespace Service
         List<Game> GetAvaivableGames();
 
         [OperationContract]
-        Game StartGame();
+        Game ConnectGame(int gameId, int userId);
         [OperationContract]
         void SelectRole(int roleId);
     }

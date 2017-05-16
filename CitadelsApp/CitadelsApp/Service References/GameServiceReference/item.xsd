@@ -60,15 +60,18 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
-  <xs:element name="StartGame">
-    <xs:complexType>
-      <xs:sequence />
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="StartGameResponse">
+  <xs:element name="ConnectGame">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/Service.Database" minOccurs="0" name="StartGameResult" nillable="true" type="q5:Game" />
+        <xs:element minOccurs="0" name="gameId" type="xs:int" />
+        <xs:element minOccurs="0" name="userId" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ConnectGameResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/Service.Database" minOccurs="0" name="ConnectGameResult" nillable="true" type="q5:Game" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>

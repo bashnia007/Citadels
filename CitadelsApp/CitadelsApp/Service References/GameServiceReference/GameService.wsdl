@@ -287,7 +287,7 @@
       </wsp:All>
     </wsp:ExactlyOne>
   </wsp:Policy>
-  <wsp:Policy wsu:Id="WSDualHttpBinding_IGameService_StartGame_Input_policy">
+  <wsp:Policy wsu:Id="WSDualHttpBinding_IGameService_ConnectGame_Input_policy">
     <wsp:ExactlyOne>
       <wsp:All>
         <sp:SignedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
@@ -310,7 +310,7 @@
       </wsp:All>
     </wsp:ExactlyOne>
   </wsp:Policy>
-  <wsp:Policy wsu:Id="WSDualHttpBinding_IGameService_StartGame_output_policy">
+  <wsp:Policy wsu:Id="WSDualHttpBinding_IGameService_ConnectGame_output_policy">
     <wsp:ExactlyOne>
       <wsp:All>
         <sp:SignedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
@@ -410,11 +410,11 @@
   <wsdl:message name="IGameService_GetAvaivableGames_OutputMessage">
     <wsdl:part name="parameters" element="tns:GetAvaivableGamesResponse" />
   </wsdl:message>
-  <wsdl:message name="IGameService_StartGame_InputMessage">
-    <wsdl:part name="parameters" element="tns:StartGame" />
+  <wsdl:message name="IGameService_ConnectGame_InputMessage">
+    <wsdl:part name="parameters" element="tns:ConnectGame" />
   </wsdl:message>
-  <wsdl:message name="IGameService_StartGame_OutputMessage">
-    <wsdl:part name="parameters" element="tns:StartGameResponse" />
+  <wsdl:message name="IGameService_ConnectGame_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ConnectGameResponse" />
   </wsdl:message>
   <wsdl:message name="IGameService_SelectRole_InputMessage">
     <wsdl:part name="parameters" element="tns:SelectRole" />
@@ -439,9 +439,9 @@
       <wsdl:input wsaw:Action="http://tempuri.org/IGameService/GetAvaivableGames" message="tns:IGameService_GetAvaivableGames_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IGameService/GetAvaivableGamesResponse" message="tns:IGameService_GetAvaivableGames_OutputMessage" />
     </wsdl:operation>
-    <wsdl:operation name="StartGame">
-      <wsdl:input wsaw:Action="http://tempuri.org/IGameService/StartGame" message="tns:IGameService_StartGame_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IGameService/StartGameResponse" message="tns:IGameService_StartGame_OutputMessage" />
+    <wsdl:operation name="ConnectGame">
+      <wsdl:input wsaw:Action="http://tempuri.org/IGameService/ConnectGame" message="tns:IGameService_ConnectGame_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IGameService/ConnectGameResponse" message="tns:IGameService_ConnectGame_OutputMessage" />
     </wsdl:operation>
     <wsdl:operation name="SelectRole">
       <wsdl:input wsaw:Action="http://tempuri.org/IGameService/SelectRole" message="tns:IGameService_SelectRole_InputMessage" />
@@ -495,14 +495,14 @@
         <soap12:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="StartGame">
-      <soap12:operation soapAction="http://tempuri.org/IGameService/StartGame" style="document" />
+    <wsdl:operation name="ConnectGame">
+      <soap12:operation soapAction="http://tempuri.org/IGameService/ConnectGame" style="document" />
       <wsdl:input>
-        <wsp:PolicyReference URI="#WSDualHttpBinding_IGameService_StartGame_Input_policy" />
+        <wsp:PolicyReference URI="#WSDualHttpBinding_IGameService_ConnectGame_Input_policy" />
         <soap12:body use="literal" />
       </wsdl:input>
       <wsdl:output>
-        <wsp:PolicyReference URI="#WSDualHttpBinding_IGameService_StartGame_output_policy" />
+        <wsp:PolicyReference URI="#WSDualHttpBinding_IGameService_ConnectGame_output_policy" />
         <soap12:body use="literal" />
       </wsdl:output>
     </wsdl:operation>

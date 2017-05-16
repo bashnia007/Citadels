@@ -20,9 +20,10 @@
             <RowDefinition/>
         </Grid.RowDefinitions>
         <ListView Grid.Column="0"
-                 Grid.Row="0"
-                 Grid.ColumnSpan="3"
-                 ItemsSource="{Binding Games}">
+                  Grid.Row="0"
+                  Grid.ColumnSpan="3"
+                  ItemsSource="{Binding Games}"
+                  SelectedItem="{Binding SelectedGame}">
             <ListView.View>
                 <GridView>
                     <GridViewColumn Header="Название игры" 

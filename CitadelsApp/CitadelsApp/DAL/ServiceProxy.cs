@@ -27,10 +27,11 @@ namespace CitadelsApp.DAL
             }
         }
 
-        public static async Task Connect()
+        public static GameServiceReference.Game Connect(int gameId, int userId)
         {
             using (var proxy = new GameServiceClient())
             {
+                return proxy.ConnectGame(gameId, userId);
             }
         }
 

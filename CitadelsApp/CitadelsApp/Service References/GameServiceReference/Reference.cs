@@ -259,11 +259,11 @@ namespace CitadelsApp.GameServiceReference {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGameService/GetAvaivableGames", ReplyAction="http://tempuri.org/IGameService/GetAvaivableGamesResponse")]
         System.Threading.Tasks.Task<CitadelsApp.GameServiceReference.Game[]> GetAvaivableGamesAsync();
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGameService/StartGame", ReplyAction="http://tempuri.org/IGameService/StartGameResponse")]
-        CitadelsApp.GameServiceReference.Game StartGame();
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGameService/ConnectGame", ReplyAction="http://tempuri.org/IGameService/ConnectGameResponse")]
+        CitadelsApp.GameServiceReference.Game ConnectGame(int gameId, int userId);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGameService/StartGame", ReplyAction="http://tempuri.org/IGameService/StartGameResponse")]
-        System.Threading.Tasks.Task<CitadelsApp.GameServiceReference.Game> StartGameAsync();
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGameService/ConnectGame", ReplyAction="http://tempuri.org/IGameService/ConnectGameResponse")]
+        System.Threading.Tasks.Task<CitadelsApp.GameServiceReference.Game> ConnectGameAsync(int gameId, int userId);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGameService/SelectRole", ReplyAction="http://tempuri.org/IGameService/SelectRoleResponse")]
         void SelectRole(int roleId);
@@ -331,12 +331,12 @@ namespace CitadelsApp.GameServiceReference {
             return base.Channel.GetAvaivableGamesAsync();
         }
         
-        public CitadelsApp.GameServiceReference.Game StartGame() {
-            return base.Channel.StartGame();
+        public CitadelsApp.GameServiceReference.Game ConnectGame(int gameId, int userId) {
+            return base.Channel.ConnectGame(gameId, userId);
         }
         
-        public System.Threading.Tasks.Task<CitadelsApp.GameServiceReference.Game> StartGameAsync() {
-            return base.Channel.StartGameAsync();
+        public System.Threading.Tasks.Task<CitadelsApp.GameServiceReference.Game> ConnectGameAsync(int gameId, int userId) {
+            return base.Channel.ConnectGameAsync(gameId, userId);
         }
         
         public void SelectRole(int roleId) {

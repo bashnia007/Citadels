@@ -1,4 +1,6 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using Service.Database;
 using Game = Service.Database.Game;
@@ -7,8 +9,17 @@ namespace Service
 {
     public class GameService : IGameService
     {
-        public Game StartGame()
+        public Game ConnectGame(int gameId, int userId)
         {
+            using (var context = new DatabaseContext())
+            {
+                var game = context.Games.FirstOrDefault(g => g.Id == gameId);
+                if(game == null) throw new Exception("Не найдена игра");
+                var user = context.Users.FirstOrDefault(u => u.Id == userId);
+                if(user == null) throw new Exception("Не найден пользователь");
+                game.Players.Add(user);
+                context.SaveChanges();
+            }
             return null;
         }
 
