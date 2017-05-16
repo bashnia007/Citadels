@@ -43,7 +43,9 @@
   </xs:element>
   <xs:element name="CreateGameResponse">
     <xs:complexType>
-      <xs:sequence />
+      <xs:sequence>
+        <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/Service.Database" minOccurs="0" name="CreateGameResult" nillable="true" type="q3:Game" />
+      </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="GetAvaivableGames">
@@ -54,7 +56,7 @@
   <xs:element name="GetAvaivableGamesResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/Service.Database" minOccurs="0" name="GetAvaivableGamesResult" nillable="true" type="q3:ArrayOfGame" />
+        <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/Service.Database" minOccurs="0" name="GetAvaivableGamesResult" nillable="true" type="q4:ArrayOfGame" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -65,7 +67,9 @@
   </xs:element>
   <xs:element name="StartGameResponse">
     <xs:complexType>
-      <xs:sequence />
+      <xs:sequence>
+        <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/Service.Database" minOccurs="0" name="StartGameResult" nillable="true" type="q5:Game" />
+      </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="SelectRole">

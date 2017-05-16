@@ -8,6 +8,7 @@ using System.Windows;
 using System.Windows.Input;
 using CitadelsApp.AdditionalWindows;
 using CitadelsApp.DAL;
+using CitadelsApp.Game.ViewModels;
 using CitadelsApp.GameServiceReference;
 using CitadelsApp.KindOfMagic;
 
@@ -18,6 +19,7 @@ namespace CitadelsApp
         #region Privates
 
         private Window _dialogWindow;
+        private int _userId;
         #endregion
         #region Properties
         public ObservableCollection<GameServiceReference.Game> Games { get; set; }
@@ -25,8 +27,9 @@ namespace CitadelsApp
         #endregion
 
         #region Constructors
-        public LobbyViewModel()
+        public LobbyViewModel(int userId)
         {
+            _userId = userId;
             Init();
         }
         #endregion
@@ -81,7 +84,15 @@ namespace CitadelsApp
             _dialogWindow = new CreateGame { DataContext = this };
             if (_dialogWindow.ShowDialog() == true)
             {
-                await ServiceProxy.CreateGame(NewGame.Description, NewGame.PlayersCount, 1);
+                GameServiceReference.Game game = null;
+                await Task.Run(() =>
+                {
+                    game = ServiceProxy.CreateGame(NewGame.Description, NewGame.PlayersCount, _userId);
+                });
+                if (game != null)
+                {
+                    var gameViewModel = new GameViewModel(game, _userId);
+                }
             }
             ExecuteRefreshCommand(param);
         }

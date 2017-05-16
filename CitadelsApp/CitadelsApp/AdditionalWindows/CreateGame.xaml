@@ -6,6 +6,9 @@
         xmlns:local="clr-namespace:CitadelsApp.AdditionalWindows"
         mc:Ignorable="d"
         Title="Создание игры" Height="300" Width="300">
+    <Window.Resources>
+        <ResourceDictionary Source="../Themes/CommonStyles.xaml"></ResourceDictionary>
+    </Window.Resources>
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition/>
@@ -21,19 +24,21 @@
                  Text="Имя игры" />
         <TextBlock Grid.Row="0"
                  Grid.Column="1"
-                 Text="Количество игроков"></TextBlock>
+                 Text="Количество игроков"/>
         <TextBox Grid.Column="0"
                    Grid.Row="1"
-                   Text="{Binding NewGame.Name}"/>
+                   Text="{Binding NewGame.Description}"/>
         <TextBox Grid.Column="1"
                    Grid.Row="1"
-                   Text="{Binding NewGame.MaxPlayersCount}"/>
+                   Text="{Binding NewGame.PlayersCount}"/>
         <Button Grid.Column="0"
                 Grid.Row="2"
                 Content="Создать"
-                Command="{Binding SaveDialogCommand}"/>
+                Command="{Binding SaveDialogCommand}"
+                Style="{DynamicResource Button.CommonStyle}"/>
         <Button Grid.Column="1"
                 Grid.Row="2"
-                Content="Отмена" />
+                Content="Отмена"
+                Style="{DynamicResource Button.CommonStyle}"/>
     </Grid>
 </Window>

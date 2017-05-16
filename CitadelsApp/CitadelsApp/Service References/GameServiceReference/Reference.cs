@@ -248,10 +248,10 @@ namespace CitadelsApp.GameServiceReference {
         System.Threading.Tasks.Task<CitadelsApp.GameServiceReference.User> RegisterAsync(string login, string password, string email);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGameService/CreateGame", ReplyAction="http://tempuri.org/IGameService/CreateGameResponse")]
-        void CreateGame(string gameTitle, int maxPlayers, int creatorId);
+        CitadelsApp.GameServiceReference.Game CreateGame(string gameTitle, int maxPlayers, int creatorId);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGameService/CreateGame", ReplyAction="http://tempuri.org/IGameService/CreateGameResponse")]
-        System.Threading.Tasks.Task CreateGameAsync(string gameTitle, int maxPlayers, int creatorId);
+        System.Threading.Tasks.Task<CitadelsApp.GameServiceReference.Game> CreateGameAsync(string gameTitle, int maxPlayers, int creatorId);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGameService/GetAvaivableGames", ReplyAction="http://tempuri.org/IGameService/GetAvaivableGamesResponse")]
         CitadelsApp.GameServiceReference.Game[] GetAvaivableGames();
@@ -260,10 +260,10 @@ namespace CitadelsApp.GameServiceReference {
         System.Threading.Tasks.Task<CitadelsApp.GameServiceReference.Game[]> GetAvaivableGamesAsync();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGameService/StartGame", ReplyAction="http://tempuri.org/IGameService/StartGameResponse")]
-        void StartGame();
+        CitadelsApp.GameServiceReference.Game StartGame();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGameService/StartGame", ReplyAction="http://tempuri.org/IGameService/StartGameResponse")]
-        System.Threading.Tasks.Task StartGameAsync();
+        System.Threading.Tasks.Task<CitadelsApp.GameServiceReference.Game> StartGameAsync();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGameService/SelectRole", ReplyAction="http://tempuri.org/IGameService/SelectRoleResponse")]
         void SelectRole(int roleId);
@@ -315,11 +315,11 @@ namespace CitadelsApp.GameServiceReference {
             return base.Channel.RegisterAsync(login, password, email);
         }
         
-        public void CreateGame(string gameTitle, int maxPlayers, int creatorId) {
-            base.Channel.CreateGame(gameTitle, maxPlayers, creatorId);
+        public CitadelsApp.GameServiceReference.Game CreateGame(string gameTitle, int maxPlayers, int creatorId) {
+            return base.Channel.CreateGame(gameTitle, maxPlayers, creatorId);
         }
         
-        public System.Threading.Tasks.Task CreateGameAsync(string gameTitle, int maxPlayers, int creatorId) {
+        public System.Threading.Tasks.Task<CitadelsApp.GameServiceReference.Game> CreateGameAsync(string gameTitle, int maxPlayers, int creatorId) {
             return base.Channel.CreateGameAsync(gameTitle, maxPlayers, creatorId);
         }
         
@@ -331,11 +331,11 @@ namespace CitadelsApp.GameServiceReference {
             return base.Channel.GetAvaivableGamesAsync();
         }
         
-        public void StartGame() {
-            base.Channel.StartGame();
+        public CitadelsApp.GameServiceReference.Game StartGame() {
+            return base.Channel.StartGame();
         }
         
-        public System.Threading.Tasks.Task StartGameAsync() {
+        public System.Threading.Tasks.Task<CitadelsApp.GameServiceReference.Game> StartGameAsync() {
             return base.Channel.StartGameAsync();
         }
         

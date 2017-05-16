@@ -19,11 +19,11 @@ namespace CitadelsApp.DAL
             }
         }
 
-        public static async Task CreateGame(string gameTitle, int maxPlayers, int creatorId)
+        public static GameServiceReference.Game CreateGame(string gameTitle, int maxPlayers, int creatorId)
         {
             using (var proxy = new GameServiceClient())
             {
-                await proxy.CreateGameAsync(gameTitle, maxPlayers, creatorId);
+                return proxy.CreateGame(gameTitle, maxPlayers, creatorId);
             }
         }
 

@@ -7,9 +7,9 @@ namespace Service
 {
     public class GameService : IGameService
     {
-        public void StartGame()
+        public Game StartGame()
         {
-            
+            return null;
         }
 
         public User Login(string login, string password)
@@ -46,19 +46,21 @@ namespace Service
             }
         }
 
-        public void CreateGame(string gameTitle, int maxPlayers, int creatorId)
+        public Game CreateGame(string gameTitle, int maxPlayers, int creatorId)
         {
             var game = new Game
             {
                 IsAvaivable = true,
                 PlayersCount = maxPlayers,
                 CreatorId = creatorId,
+                Description = gameTitle,
                 Players = new List<User>()
             };
             using (var context = new DatabaseContext())
             {
-                context.Games.Add(game);
+                var result = context.Games.Add(game);
                 context.SaveChanges();
+                return result;
             }
         }
 

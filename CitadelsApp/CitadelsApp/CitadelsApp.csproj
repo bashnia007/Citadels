@@ -72,6 +72,10 @@
       <DependentUpon>CreateGame.xaml</DependentUpon>
     </Compile>
     <Compile Include="DAL\ServiceProxy.cs" />
+    <Compile Include="Game\ViewModels\GameViewModel.cs" />
+    <Compile Include="Game\Views\BottomMenu.xaml.cs">
+      <DependentUpon>BottomMenu.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Game\Views\Card.xaml.cs">
       <DependentUpon>Card.xaml</DependentUpon>
     </Compile>
@@ -96,6 +100,10 @@
     </Compile>
     <Compile Include="ValidationRules\EmailValidationRule.cs" />
     <Page Include="AdditionalWindows\CreateGame.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Game\Views\BottomMenu.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

@@ -13,12 +13,12 @@ namespace Service
         User Register(string login, string password, string email);
         [OperationContract]
 
-        void CreateGame(string gameTitle, int maxPlayers, int creatorId);
+        Game CreateGame(string gameTitle, int maxPlayers, int creatorId);
         [OperationContract]
         List<Game> GetAvaivableGames();
 
         [OperationContract]
-        void StartGame();
+        Game StartGame();
         [OperationContract]
         void SelectRole(int roleId);
     }

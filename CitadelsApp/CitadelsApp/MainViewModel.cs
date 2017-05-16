@@ -56,7 +56,7 @@ namespace CitadelsApp
             {
                 _dialogWindow.DialogResult = true;
                 _dialogWindow.Close();
-                var lobbyViewModel = new LobbyViewModel();
+                var lobbyViewModel = new LobbyViewModel(user.Id);
                 CurrentContent = new Lobby { DataContext = lobbyViewModel };
             }
             else
@@ -88,7 +88,7 @@ namespace CitadelsApp
             {
                 _dialogWindow.DialogResult = true;
                 _dialogWindow.Close();
-                var lobbyViewModel = new LobbyViewModel();
+                var lobbyViewModel = new LobbyViewModel(user.Id);
                 CurrentContent = new Lobby { DataContext = lobbyViewModel };
             }
             else

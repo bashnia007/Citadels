@@ -13,14 +13,14 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace CitadelsApp.Game.Views
+namespace CitadelsApp.Game
 {
     /// <summary>
-    /// Interaction logic for GameUI.xaml
+    /// Interaction logic for BottomMenu.xaml
     /// </summary>
-    public partial class GameUI : Window
+    public partial class BottomMenu : UserControl
     {
-        public GameUI()
+        public BottomMenu()
         {
             InitializeComponent();
         }

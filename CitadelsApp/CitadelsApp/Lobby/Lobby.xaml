@@ -5,7 +5,7 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:CitadelsApp"
              mc:Ignorable="d" 
-             d:DesignHeight="300" d:DesignWidth="300">
+             d:DesignHeight="300" d:DesignWidth="500">
     <UserControl.Resources>
         <ResourceDictionary Source="../Themes/CommonStyles.xaml"></ResourceDictionary>
     </UserControl.Resources>
@@ -26,9 +26,9 @@
             <ListView.View>
                 <GridView>
                     <GridViewColumn Header="Название игры" 
-                                    DisplayMemberBinding="{Binding Name}"/>
+                                    DisplayMemberBinding="{Binding Description}"/>
                     <GridViewColumn Header="Максимум игроков"
-                                    DisplayMemberBinding="{Binding MaxPlayersCount}"/>
+                                    DisplayMemberBinding="{Binding PlayersCount}"/>
                 </GridView>
             </ListView.View>
         </ListView>
