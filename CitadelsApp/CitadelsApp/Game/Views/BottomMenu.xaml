@@ -22,9 +22,20 @@
                     <RowDefinition Height="Auto"/>
                     <RowDefinition />
                 </Grid.RowDefinitions>
-                <TextBox Grid.Row="0" />
+                <Grid Grid.Row="0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition Width="20"/>
+                    </Grid.ColumnDefinitions>
+                    <TextBox Grid.Column="0"
+                             Text="{Binding Message}"/>
+                    <Button Grid.Column="1"
+                            Content=""
+                            Command="{Binding SendCommand}"/>
+                </Grid>
                 <ScrollViewer Grid.Row="1">
-                    <TextBlock TextWrapping="Wrap"></TextBlock>
+                    <TextBlock TextWrapping="Wrap"
+                               Text="{Binding Messages, UpdateSourceTrigger=PropertyChanged}"></TextBlock>
                 </ScrollViewer>
             </Grid>
         </Border>

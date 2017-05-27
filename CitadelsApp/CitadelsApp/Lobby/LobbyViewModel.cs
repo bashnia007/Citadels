@@ -22,9 +22,9 @@ namespace CitadelsApp
         private int _userId;
         #endregion
         #region Properties
-        public ObservableCollection<GameServiceReference.Game> Games { get; set; }
+        /*public ObservableCollection<GameServiceReference.Game> Games { get; set; }
         public GameServiceReference.Game NewGame { get; set; }
-        public GameServiceReference.Game SelectedGame { get; set; }
+        public GameServiceReference.Game SelectedGame { get; set; }*/
         #endregion
 
         #region Constructors
@@ -45,8 +45,9 @@ namespace CitadelsApp
 
         public async void ExecuteRefreshCommand(object param)
         {
+            /*
             var data = await ServiceProxy.GetAvaivableGames();
-            Games = new ObservableCollection<GameServiceReference.Game>(data);
+            Games = new ObservableCollection<GameServiceReference.Game>(data);*/
         }
 
         private bool CanExecuteRefreshCommand(object param)
@@ -63,7 +64,7 @@ namespace CitadelsApp
 
         private async void ExecuteConnectCommand(object param)
         {
-            GameServiceReference.Game game = null;
+            /*GameServiceReference.Game game = null;
             await Task.Run(() =>
             {
                 game = ServiceProxy.Connect(SelectedGame.Id, _userId);
@@ -71,12 +72,13 @@ namespace CitadelsApp
             if (game != null)
             {
                 var gameViewModel = new GameViewModel(game, _userId);
-            }
+            }*/
         }
 
         private bool CanExecuteConnectCommand(object param)
         {
-            return SelectedGame != null;
+            return true;
+            //return SelectedGame != null;
         }
 
         #endregion
@@ -89,6 +91,7 @@ namespace CitadelsApp
 
         private async void ExecuteCreateGameCommand(object param)
         {
+            /*
             NewGame = new GameServiceReference.Game();
             _dialogWindow = new CreateGame { DataContext = this };
             if (_dialogWindow.ShowDialog() == true)
@@ -103,7 +106,7 @@ namespace CitadelsApp
                     var gameViewModel = new GameViewModel(game, _userId);
                 }
             }
-            ExecuteRefreshCommand(param);
+            ExecuteRefreshCommand(param);*/
         }
 
         private bool CanExecuteCreateGameCommand(object param)

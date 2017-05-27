@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.ServiceModel;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -25,10 +26,12 @@ namespace CitadelsApp
         public string Email { get; set; }
         public object CurrentContent { get; set; }
         public Visibility IncorrectAuth { get; set; }
+        public GameServiceClient Service { get; set; }
         #endregion
 
         public MainViewModel()
         {
+            InitChannel();
             _dialogWindow = new LoginWindow {DataContext = this};
             IncorrectAuth = Visibility.Collapsed;
             if (_dialogWindow.ShowDialog() != true)
@@ -47,22 +50,10 @@ namespace CitadelsApp
 
         private async void ExecuteLoginCommand(object param)
         {
-            User user = null;
             await Task.Run(() =>
             {
-                user = ServiceProxy.Login(Login, Password);
+                Service.Login(Login, Password);
             });
-            if (user != null)
-            {
-                _dialogWindow.DialogResult = true;
-                _dialogWindow.Close();
-                var lobbyViewModel = new LobbyViewModel(user.Id);
-                CurrentContent = new Lobby { DataContext = lobbyViewModel };
-            }
-            else
-            {
-                IncorrectAuth = Visibility.Visible;
-            }
         }
 
         private bool CanExecuteLoginCommand(object param)
@@ -78,7 +69,7 @@ namespace CitadelsApp
                                            (_registerCommand = new RelayCommand(ExecuteRegisterCommand, CanExecuteRegisterCommand));
 
         private async void ExecuteRegisterCommand(object param)
-        {
+        {/*
             User user = null;
             await Task.Run(() =>
             {
@@ -94,7 +85,7 @@ namespace CitadelsApp
             else
             {
                 IncorrectAuth = Visibility.Visible;
-            }
+            }*/
         }
 
         private bool CanExecuteRegisterCommand(object param)
@@ -104,6 +95,15 @@ namespace CitadelsApp
 
         #endregion
 
+        #endregion
+
+        #region Members
+
+        private void InitChannel()
+        {
+            InstanceContext context = new InstanceContext(new PlayerClient());
+            Service = new GameServiceClient(context);
+        }
         #endregion
     }
 }

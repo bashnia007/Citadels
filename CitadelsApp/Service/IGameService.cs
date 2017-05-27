@@ -4,12 +4,12 @@ using Service.Database;
 
 namespace Service
 {
-    [ServiceContract]
+    [ServiceContract(CallbackContract = typeof(IPlayerClient))]
     public interface IGameService
     {
-        [OperationContract]
-        User Login(string login, string password);
-        [OperationContract]
+        [OperationContract(IsOneWay = true)]
+        void Login(string login, string password);
+        /*[OperationContract]
         User Register(string login, string password, string email);
         [OperationContract]
 
@@ -18,8 +18,10 @@ namespace Service
         List<Game> GetAvaivableGames();
 
         [OperationContract]
-        Game ConnectGame(int gameId, int userId);
-        [OperationContract]
-        void SelectRole(int roleId);
+        Game ConnectGame(int gameId, int userId);*/
+
+        [OperationContract(IsOneWay = true)]
+        void SendMessage(string message);
+        
     }
 }

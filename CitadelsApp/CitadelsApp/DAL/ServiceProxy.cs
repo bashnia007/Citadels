@@ -4,12 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using CitadelsApp.GameServiceReference;
-using Game = CitadelsApp.GameServiceReference.Game;
 
 namespace CitadelsApp.DAL
 {
     public static class ServiceProxy
-    {
+    {/*
         public static async Task<List<GameServiceReference.Game>> GetAvaivableGames()
         {
             using (var proxy = new GameServiceClient())
@@ -51,6 +50,6 @@ namespace CitadelsApp.DAL
                 var user = proxy.Register(login, password, email);
                 return user;
             }
-        }
+        }*/
     }
 }

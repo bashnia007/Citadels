@@ -9,82 +9,33 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
-  <xs:element name="LoginResponse">
+  <xs:element name="SendMessage">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/Service.Database" minOccurs="0" name="LoginResult" nillable="true" type="q1:User" />
+        <xs:element minOccurs="0" name="message" nillable="true" type="xs:string" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
-  <xs:element name="Register">
+  <xs:element name="RecieveMessage">
     <xs:complexType>
       <xs:sequence>
-        <xs:element minOccurs="0" name="login" nillable="true" type="xs:string" />
-        <xs:element minOccurs="0" name="password" nillable="true" type="xs:string" />
-        <xs:element minOccurs="0" name="email" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="user" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="message" nillable="true" type="xs:string" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
-  <xs:element name="RegisterResponse">
+  <xs:element name="GetLoginUser">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/Service.Database" minOccurs="0" name="RegisterResult" nillable="true" type="q2:User" />
+        <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/Service.Database" minOccurs="0" name="user" nillable="true" type="q1:User" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
-  <xs:element name="CreateGame">
+  <xs:element name="GetRegisterUser">
     <xs:complexType>
       <xs:sequence>
-        <xs:element minOccurs="0" name="gameTitle" nillable="true" type="xs:string" />
-        <xs:element minOccurs="0" name="maxPlayers" type="xs:int" />
-        <xs:element minOccurs="0" name="creatorId" type="xs:int" />
+        <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/Service.Database" minOccurs="0" name="user" nillable="true" type="q2:User" />
       </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="CreateGameResponse">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/Service.Database" minOccurs="0" name="CreateGameResult" nillable="true" type="q3:Game" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="GetAvaivableGames">
-    <xs:complexType>
-      <xs:sequence />
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="GetAvaivableGamesResponse">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/Service.Database" minOccurs="0" name="GetAvaivableGamesResult" nillable="true" type="q4:ArrayOfGame" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="ConnectGame">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element minOccurs="0" name="gameId" type="xs:int" />
-        <xs:element minOccurs="0" name="userId" type="xs:int" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="ConnectGameResponse">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/Service.Database" minOccurs="0" name="ConnectGameResult" nillable="true" type="q5:Game" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="SelectRole">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element minOccurs="0" name="roleId" type="xs:int" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="SelectRoleResponse">
-    <xs:complexType>
-      <xs:sequence />
     </xs:complexType>
   </xs:element>
 </xs:schema>

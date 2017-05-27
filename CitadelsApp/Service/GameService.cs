@@ -2,13 +2,18 @@
 using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
+using System.ServiceModel;
 using Service.Database;
 using Game = Service.Database.Game;
 
 namespace Service
 {
+    [ServiceBehavior(ConcurrencyMode = ConcurrencyMode.Single, InstanceContextMode = InstanceContextMode.Single)]
     public class GameService : IGameService
     {
+        #region Privates
+        private readonly Dictionary<IPlayerClient, User> _users = new Dictionary<IPlayerClient, User>();
+        #endregion
         public Game ConnectGame(int gameId, int userId)
         {
             using (var context = new DatabaseContext())
@@ -23,24 +28,19 @@ namespace Service
             return null;
         }
 
-        public User Login(string login, string password)
+        public void Login(string login, string password)
         {
+            var connection = OperationContext.Current.GetCallbackChannel<IPlayerClient>();
             using (var context = new DatabaseContext())
             {
                 var user = context.Users.FirstOrDefault(u => u.Login == login && u.Password == password);
-                return user;
+                if (user != null)
+                {
+                    _users.Add(connection, user);
+                    connection.GetLoginUser(user);
+                }
             }
         }
-
-        public void SelectRole(int roleId)
-        {
-            
-        }
-        
-        /*public List<Role> GetAvaivableRoles(int gameId)
-        {
-            return null;
-        }*/
 
         public User Register(string login, string password, string email)
         {
@@ -81,6 +81,11 @@ namespace Service
             {
                 return context.Games.ToList();
             }
+        }
+
+        public void SendMessage(string message)
+        {
+            
         }
     }
 }
