@@ -9,7 +9,6 @@ using System.Windows.Input;
 using CitadelsApp.AdditionalWindows;
 using CitadelsApp.DAL;
 using CitadelsApp.Game.ViewModels;
-using CitadelsApp.GameServiceReference;
 using CitadelsApp.KindOfMagic;
 
 namespace CitadelsApp

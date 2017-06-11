@@ -10,9 +10,10 @@
         <Grid.RowDefinitions>
             <RowDefinition />
             <RowDefinition />
-            <RowDefinition />
         </Grid.RowDefinitions>
-        <ContentControl Grid.Row="2"
+        <ContentControl Grid.Row="0"
+                        Content="{Binding CenterView}"/>
+        <ContentControl Grid.Row="1"
                         Content="{Binding BottomMenu}"/>
     </Grid>
 </Window>

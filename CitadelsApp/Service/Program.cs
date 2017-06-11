@@ -13,9 +13,12 @@ namespace Service
         {
             ServiceHost host = new ServiceHost(typeof(GameService));
             host.Open();
+            ServiceHost host2 = new ServiceHost(typeof(DuplexService));
+            host2.Open();
             Console.WriteLine("Сервис запущен");
             Console.ReadLine();
             host.Close();
+            host2.Close();
         }
     }
 }

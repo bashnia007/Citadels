@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -20,6 +21,8 @@ namespace CitadelsApp.Game.ViewModels
         #region Properies
         public Window Window { get; set; }
         public object BottomMenu { get; set; }
+        public object CenterView { get; set; }
+        public ObservableCollection<Player> Players { get; set; }
         #endregion
 
         #region Constructors
@@ -29,6 +32,39 @@ namespace CitadelsApp.Game.ViewModels
             _userId = userId;
             Init();
         }*/
+
+        public GameViewModel()
+        {
+            BottomMenu = new BottomMenu();
+            CenterView = new CenterView {DataContext = this};
+            Players = new ObservableCollection<Player>
+            {
+                new Player
+                {
+                    Name = "Петя",
+                    CardsCount = 3,
+                    GoldCount = 4
+                },
+                new Player
+                {
+                    Name = "Вася",
+                    CardsCount = 4,
+                    GoldCount = 7
+                },
+                new Player
+                {
+                    Name = "Дима",
+                    CardsCount = 1,
+                    GoldCount = 2
+                },
+                new Player
+                {
+                    Name = "Женя",
+                    CardsCount = 5,
+                    GoldCount = 2
+                },
+            };
+        }
         #endregion
 
         #region Commands
@@ -58,5 +94,12 @@ namespace CitadelsApp.Game.ViewModels
             Window.Show();
         }
         #endregion
+    }
+
+    public class Player
+    {
+        public string Name { get; set; }
+        public int GoldCount { get; set; }
+        public int CardsCount { get; set; }
     }
 }

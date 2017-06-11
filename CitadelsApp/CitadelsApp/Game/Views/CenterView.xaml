@@ -7,6 +7,27 @@
              mc:Ignorable="d" 
              d:DesignHeight="300" d:DesignWidth="300">
     <Grid>
-            
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition />
+        </Grid.ColumnDefinitions>
+        <ListBox Grid.Column="0" 
+                 ItemsSource="{Binding Players}">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel>
+                        <TextBlock Text="{Binding Name}" />
+                        <TextBlock>
+                            <Run Text="Золото: " />
+                            <Run Text="{Binding GoldCount}"/>
+                        </TextBlock>
+                        <TextBlock>
+                            <Run Text="Карты: "/>
+                            <Run Text="{Binding CardsCount}" />
+                        </TextBlock>
+                    </StackPanel>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
     </Grid>
 </UserControl>

@@ -8,9 +8,9 @@ using System.Windows;
 using System.Windows.Input;
 using System.Windows.Threading;
 using CitadelsApp.DAL;
-using CitadelsApp.GameServiceReference;
 using CitadelsApp.KindOfMagic;
 using CitadelsApp.Login;
+using CitadelsApp.OneWayReference;
 
 namespace CitadelsApp
 {
@@ -101,8 +101,8 @@ namespace CitadelsApp
 
         private void InitChannel()
         {
-            InstanceContext context = new InstanceContext(new PlayerClient());
-            Service = new GameServiceClient(context);
+            //InstanceContext context = new InstanceContext(new PlayerClient());
+            //Service = new GameServiceClient(context);
         }
         #endregion
     }

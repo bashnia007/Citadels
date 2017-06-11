@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="186a8f4c-1cd5-48fb-996c-103959e73c41" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost:9090/GameService/" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="item.xsd" MetadataType="Schema" ID="4208c810-8f6f-4e61-9d64-b91fc38261f1" SourceId="1" SourceUrl="http://localhost:9090/GameService/?xsd=xsd0" />
+    <MetadataFile FileName="GameService.wsdl" MetadataType="Wsdl" ID="cac35431-622a-43ec-ac9c-c378c6d242f4" SourceId="1" SourceUrl="http://localhost:9090/GameService/?wsdl" />
+    <MetadataFile FileName="item1.xsd" MetadataType="Schema" ID="2d776e05-fb73-49bd-8e09-a0aba84fe49a" SourceId="1" SourceUrl="http://localhost:9090/GameService/?xsd=xsd2" />
+    <MetadataFile FileName="item.disco" MetadataType="Disco" ID="f9c82d77-7566-4a5d-b9b0-8cd0b04b5461" SourceId="1" SourceUrl="http://localhost:9090/GameService/?disco" />
+    <MetadataFile FileName="item2.xsd" MetadataType="Schema" ID="81108bed-6fb7-4f0b-b4ef-cb7854cb0f34" SourceId="1" SourceUrl="http://localhost:9090/GameService/?xsd=xsd1" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

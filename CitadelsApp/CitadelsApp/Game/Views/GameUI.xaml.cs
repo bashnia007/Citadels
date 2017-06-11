@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using CitadelsApp.Game.ViewModels;
 
 namespace CitadelsApp.Game.Views
 {
@@ -23,6 +24,8 @@ namespace CitadelsApp.Game.Views
         public GameUI()
         {
             InitializeComponent();
+            var vm = new GameViewModel();
+            DataContext = vm;
         }
     }
 }

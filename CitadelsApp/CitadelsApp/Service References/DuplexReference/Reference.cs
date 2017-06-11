@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace CitadelsApp.GameServiceReference {
+namespace CitadelsApp.DuplexReference {
     using System.Runtime.Serialization;
     using System;
     
@@ -107,69 +107,55 @@ namespace CitadelsApp.GameServiceReference {
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ServiceModel.ServiceContractAttribute(ConfigurationName="GameServiceReference.IGameService", CallbackContract=typeof(CitadelsApp.GameServiceReference.IGameServiceCallback))]
-    public interface IGameService {
+    [System.ServiceModel.ServiceContractAttribute(ConfigurationName="DuplexReference.IDuplexService", CallbackContract=typeof(CitadelsApp.DuplexReference.IDuplexServiceCallback))]
+    public interface IDuplexService {
         
-        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IGameService/Login")]
-        void Login([System.ServiceModel.MessageParameterAttribute(Name="login")] string login1, string password);
-        
-        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IGameService/Login")]
-        System.Threading.Tasks.Task LoginAsync(string login, string password);
-        
-        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IGameService/SendMessage")]
+        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IDuplexService/SendMessage")]
         void SendMessage(string message);
         
-        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IGameService/SendMessage")]
+        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IDuplexService/SendMessage")]
         System.Threading.Tasks.Task SendMessageAsync(string message);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public interface IGameServiceCallback {
+    public interface IDuplexServiceCallback {
         
-        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IGameService/RecieveMessage")]
+        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IDuplexService/RecieveMessage")]
         void RecieveMessage(string user, string message);
         
-        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IGameService/GetLoginUser")]
-        void GetLoginUser(CitadelsApp.GameServiceReference.User user);
+        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IDuplexService/GetLoginUser")]
+        void GetLoginUser(CitadelsApp.DuplexReference.User user);
         
-        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IGameService/GetRegisterUser")]
-        void GetRegisterUser(CitadelsApp.GameServiceReference.User user);
+        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IDuplexService/GetRegisterUser")]
+        void GetRegisterUser(CitadelsApp.DuplexReference.User user);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public interface IGameServiceChannel : CitadelsApp.GameServiceReference.IGameService, System.ServiceModel.IClientChannel {
+    public interface IDuplexServiceChannel : CitadelsApp.DuplexReference.IDuplexService, System.ServiceModel.IClientChannel {
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public partial class GameServiceClient : System.ServiceModel.DuplexClientBase<CitadelsApp.GameServiceReference.IGameService>, CitadelsApp.GameServiceReference.IGameService {
+    public partial class DuplexServiceClient : System.ServiceModel.DuplexClientBase<CitadelsApp.DuplexReference.IDuplexService>, CitadelsApp.DuplexReference.IDuplexService {
         
-        public GameServiceClient(System.ServiceModel.InstanceContext callbackInstance) : 
+        public DuplexServiceClient(System.ServiceModel.InstanceContext callbackInstance) : 
                 base(callbackInstance) {
         }
         
-        public GameServiceClient(System.ServiceModel.InstanceContext callbackInstance, string endpointConfigurationName) : 
+        public DuplexServiceClient(System.ServiceModel.InstanceContext callbackInstance, string endpointConfigurationName) : 
                 base(callbackInstance, endpointConfigurationName) {
         }
         
-        public GameServiceClient(System.ServiceModel.InstanceContext callbackInstance, string endpointConfigurationName, string remoteAddress) : 
+        public DuplexServiceClient(System.ServiceModel.InstanceContext callbackInstance, string endpointConfigurationName, string remoteAddress) : 
                 base(callbackInstance, endpointConfigurationName, remoteAddress) {
         }
         
-        public GameServiceClient(System.ServiceModel.InstanceContext callbackInstance, string endpointConfigurationName, System.ServiceModel.EndpointAddress remoteAddress) : 
+        public DuplexServiceClient(System.ServiceModel.InstanceContext callbackInstance, string endpointConfigurationName, System.ServiceModel.EndpointAddress remoteAddress) : 
                 base(callbackInstance, endpointConfigurationName, remoteAddress) {
         }
         
-        public GameServiceClient(System.ServiceModel.InstanceContext callbackInstance, System.ServiceModel.Channels.Binding binding, System.ServiceModel.EndpointAddress remoteAddress) : 
+        public DuplexServiceClient(System.ServiceModel.InstanceContext callbackInstance, System.ServiceModel.Channels.Binding binding, System.ServiceModel.EndpointAddress remoteAddress) : 
                 base(callbackInstance, binding, remoteAddress) {
-        }
-        
-        public void Login(string login1, string password) {
-            base.Channel.Login(login1, password);
-        }
-        
-        public System.Threading.Tasks.Task LoginAsync(string login, string password) {
-            return base.Channel.LoginAsync(login, password);
         }
         
         public void SendMessage(string message) {
