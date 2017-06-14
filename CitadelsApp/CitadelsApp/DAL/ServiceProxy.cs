@@ -1,31 +1,28 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using CitadelsApp.OneWayReference;
 
 namespace CitadelsApp.DAL
 {
     public static class ServiceProxy
-    {/*
-        public static async Task<List<GameServiceReference.Game>> GetAvaivableGames()
+    {
+        public static User Login(string login, string password)
         {
             using (var proxy = new GameServiceClient())
             {
-                var data = await proxy.GetAvaivableGamesAsync();
-                return data.ToList();
+                return proxy.Login(login, password);
             }
         }
 
-        public static GameServiceReference.Game CreateGame(string gameTitle, int maxPlayers, int creatorId)
+        public static List<OneWayReference.Game> GetAvaivableGames()
         {
             using (var proxy = new GameServiceClient())
             {
-                return proxy.CreateGame(gameTitle, maxPlayers, creatorId);
+                return proxy.GetAvaivableGames().ToList();
             }
         }
 
-        public static GameServiceReference.Game Connect(int gameId, int userId)
+        public static OneWayReference.Game ConnectGame(int gameId, int userId)
         {
             using (var proxy = new GameServiceClient())
             {
@@ -33,22 +30,12 @@ namespace CitadelsApp.DAL
             }
         }
 
-        public static User Login(string login, string password)
+        public static OneWayReference.Game CreateGame(string gameTitle, int maxPlayers, int userId)
         {
             using (var proxy = new GameServiceClient())
             {
-                var user = proxy.Login(login, password);
-                return user;
+                return proxy.CreateGame(gameTitle, maxPlayers, userId);
             }
         }
-
-        public static User Register(string login, string password, string email)
-        {
-            using (var proxy = new GameServiceClient())
-            {
-                var user = proxy.Register(login, password, email);
-                return user;
-            }
-        }*/
     }
 }

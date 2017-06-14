@@ -26,10 +26,14 @@
                   SelectedItem="{Binding SelectedGame}">
             <ListView.View>
                 <GridView>
+                    <GridViewColumn Header="№"
+                                    DisplayMemberBinding="{Binding Id}"/>
                     <GridViewColumn Header="Название игры" 
                                     DisplayMemberBinding="{Binding Description}"/>
                     <GridViewColumn Header="Максимум игроков"
                                     DisplayMemberBinding="{Binding PlayersCount}"/>
+                    <GridViewColumn Header="Создатель"
+                                    DisplayMemberBinding="{Binding CreatorId}"/>
                 </GridView>
             </ListView.View>
         </ListView>

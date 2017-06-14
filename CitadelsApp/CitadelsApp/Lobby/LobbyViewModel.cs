@@ -21,9 +21,9 @@ namespace CitadelsApp
         private int _userId;
         #endregion
         #region Properties
-        /*public ObservableCollection<GameServiceReference.Game> Games { get; set; }
-        public GameServiceReference.Game NewGame { get; set; }
-        public GameServiceReference.Game SelectedGame { get; set; }*/
+        public ObservableCollection<OneWayReference.Game> Games { get; set; }
+        public OneWayReference.Game NewGame { get; set; }
+        public OneWayReference.Game SelectedGame { get; set; }
         #endregion
 
         #region Constructors
@@ -44,9 +44,8 @@ namespace CitadelsApp
 
         public async void ExecuteRefreshCommand(object param)
         {
-            /*
-            var data = await ServiceProxy.GetAvaivableGames();
-            Games = new ObservableCollection<GameServiceReference.Game>(data);*/
+            var data = await Task.Run(() => ServiceProxy.GetAvaivableGames().ToList());
+            Games = new ObservableCollection<OneWayReference.Game>(data);
         }
 
         private bool CanExecuteRefreshCommand(object param)
@@ -63,21 +62,16 @@ namespace CitadelsApp
 
         private async void ExecuteConnectCommand(object param)
         {
-            /*GameServiceReference.Game game = null;
-            await Task.Run(() =>
-            {
-                game = ServiceProxy.Connect(SelectedGame.Id, _userId);
-            });
+            var game = await Task.Run(() => ServiceProxy.ConnectGame(SelectedGame.Id, _userId));
             if (game != null)
             {
-                var gameViewModel = new GameViewModel(game, _userId);
-            }*/
+                var gameViewModel = new GameViewModel();
+            }
         }
 
         private bool CanExecuteConnectCommand(object param)
         {
-            return true;
-            //return SelectedGame != null;
+            return SelectedGame != null;
         }
 
         #endregion
@@ -90,22 +84,21 @@ namespace CitadelsApp
 
         private async void ExecuteCreateGameCommand(object param)
         {
-            /*
-            NewGame = new GameServiceReference.Game();
+            NewGame = new OneWayReference.Game();
             _dialogWindow = new CreateGame { DataContext = this };
             if (_dialogWindow.ShowDialog() == true)
             {
-                GameServiceReference.Game game = null;
+                OneWayReference.Game game = null;
                 await Task.Run(() =>
                 {
                     game = ServiceProxy.CreateGame(NewGame.Description, NewGame.PlayersCount, _userId);
                 });
                 if (game != null)
                 {
-                    var gameViewModel = new GameViewModel(game, _userId);
+                    var gameViewModel = new GameViewModel();
                 }
             }
-            ExecuteRefreshCommand(param);*/
+            ExecuteRefreshCommand(param);
         }
 
         private bool CanExecuteCreateGameCommand(object param)

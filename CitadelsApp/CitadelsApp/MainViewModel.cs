@@ -25,11 +25,9 @@ namespace CitadelsApp
         #region Properties
         public string Login { get; set; }
         public string Password { get; set; }
-        public string Email { get; set; }
         public object CurrentContent { get; set; }
         public Visibility IncorrectAuth { get; set; }
         public DuplexServiceClient DuplexService { get; set; }
-        public GameServiceClient RequestService { get; set; }
         #endregion
 
         public MainViewModel()
@@ -53,12 +51,11 @@ namespace CitadelsApp
 
         private async void ExecuteLoginCommand(object param)
         {
-            var users = await Task.Run(() => RequestService.GetAllUsers().ToList());
             IncorrectAuth = Visibility.Collapsed;
             User user = null;
             await Task.Run(() =>
             {
-                user = RequestService.Login(Login, Password);
+                user = ServiceProxy.Login(Login, Password);
             });
             if (user != null)
             {
@@ -87,8 +84,6 @@ namespace CitadelsApp
         {
             InstanceContext context = new InstanceContext(new PlayerClient());
             DuplexService = new DuplexServiceClient(context);
-            
-            RequestService = new GameServiceClient();
         }
         #endregion
     }
