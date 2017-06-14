@@ -28,7 +28,7 @@
                    Style="{DynamicResource TextBlock.CommonStyle}"/>
         <TextBox Grid.Column="1"
                  Grid.Row="0"
-                 Text="{Binding Login}"
+                 Text="{Binding Login, UpdateSourceTrigger=PropertyChanged}"
                  Style="{DynamicResource TextBox.CommonStyle}"/>
         <TextBlock Grid.Column="0"
                    Grid.Row="1"
@@ -36,46 +36,18 @@
                    Style="{DynamicResource TextBlock.CommonStyle}"/>
         <TextBox Grid.Column="1"
                  Grid.Row="1"
-                 Text="{Binding Password}"
+                 Text="{Binding Password, UpdateSourceTrigger=PropertyChanged}"
                  Style="{DynamicResource TextBox.CommonStyle}"/>
         <TextBlock Grid.Column="1"
                    Grid.Row="2"
-                   Text="Неверный логин или пароль"
+                   Text="Пользователь с таким логином уже зарегистрирован под другим паролем"
                    Style="{DynamicResource TextBlock.AlertStyle}"
                    Visibility="{Binding IncorrectAuth}"/>
-        <CheckBox Grid.Column="0"
-                  Grid.Row="2"
-                  Grid.ColumnSpan="2"
-                  Content="Новый пользователь"
-                  Style="{DynamicResource CheckBox.CommonStyle}"
-                  IsChecked="{Binding IsNewUser}"
-                  Name="IsNewUserCb"
-                  Visibility="Collapsed"/>
-        <TextBlock Grid.Column="0"
-                   Grid.Row="3"
-                   Text="Email"
-                   Style="{DynamicResource TextBlock.CommonStyle}"/>
-        <TextBox Grid.Column="1"
-                 Grid.Row="3"
-                 Style="{DynamicResource TextBox.CommonStyle}">
-            <TextBox.Text>
-                <Binding Path="Email"
-                         UpdateSourceTrigger="PropertyChanged">
-                    <Binding.ValidationRules>
-                        <validationRules:EmailValidationRule Message="Недопустимый email"/>
-                    </Binding.ValidationRules>
-                </Binding>
-            </TextBox.Text>
-        </TextBox>
         <Button Grid.Column="0"
+                Grid.ColumnSpan="2"
                 Grid.Row="4"
                 Content="Войти"
                 Command="{Binding LoginCommand}"
-                Style="{DynamicResource Button.CommonStyle}"/>
-        <Button Grid.Column="1"
-                Grid.Row="4"
-                Content="Регистрация"
-                Command="{Binding RegisterCommand}"
                 Style="{DynamicResource Button.CommonStyle}"/>
     </Grid>
 </Window>

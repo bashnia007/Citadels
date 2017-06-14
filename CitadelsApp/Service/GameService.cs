@@ -29,26 +29,18 @@ namespace Service
         {
             using (var context = new DatabaseContext())
             {
-                var user = context.Users.FirstOrDefault(u => u.Login == login && u.Password == password);
-                return user;
-            }
-        }
-
-        public User Register(string login, string password, string email)
-        {
-            using (var context = new DatabaseContext())
-            {
-                var user = context.Users.Add(new User
+                var user = context.Users.FirstOrDefault(u => u.Login == login);
+                if (user != null) return user.Password == password ? user : null;
+                user = context.Users.Add(new User
                 {
                     Login = login,
-                    Password = password,
-                    Email = email
+                    Password = password
                 });
                 context.SaveChanges();
                 return user;
             }
         }
-
+        
         public Game CreateGame(string gameTitle, int maxPlayers, int creatorId)
         {
             var game = new Game
@@ -75,5 +67,16 @@ namespace Service
             }
         }
 
+
+        #region Временные методы
+
+        public List<User> GetAllUsers()
+        {
+            using (var context = new DatabaseContext())
+            {
+                return context.Users.ToList();
+            }
+        }
+        #endregion
     }
 }

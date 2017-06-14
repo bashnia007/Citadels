@@ -8,9 +8,11 @@ using System.Windows;
 using System.Windows.Input;
 using System.Windows.Threading;
 using CitadelsApp.DAL;
+using CitadelsApp.DuplexReference;
 using CitadelsApp.KindOfMagic;
 using CitadelsApp.Login;
 using CitadelsApp.OneWayReference;
+using User = CitadelsApp.OneWayReference.User;
 
 namespace CitadelsApp
 {
@@ -26,7 +28,8 @@ namespace CitadelsApp
         public string Email { get; set; }
         public object CurrentContent { get; set; }
         public Visibility IncorrectAuth { get; set; }
-        public GameServiceClient Service { get; set; }
+        public DuplexServiceClient DuplexService { get; set; }
+        public GameServiceClient RequestService { get; set; }
         #endregion
 
         public MainViewModel()
@@ -50,30 +53,12 @@ namespace CitadelsApp
 
         private async void ExecuteLoginCommand(object param)
         {
-            await Task.Run(() =>
-            {
-                Service.Login(Login, Password);
-            });
-        }
-
-        private bool CanExecuteLoginCommand(object param)
-        {
-            return true;
-        }
-        #endregion
-
-        #region RegisterCommand
-
-        private RelayCommand _registerCommand;
-        public ICommand RegisterCommand => _registerCommand ??
-                                           (_registerCommand = new RelayCommand(ExecuteRegisterCommand, CanExecuteRegisterCommand));
-
-        private async void ExecuteRegisterCommand(object param)
-        {/*
+            var users = await Task.Run(() => RequestService.GetAllUsers().ToList());
+            IncorrectAuth = Visibility.Collapsed;
             User user = null;
             await Task.Run(() =>
             {
-                user = ServiceProxy.Register(Login, Password, Email);
+                user = RequestService.Login(Login, Password);
             });
             if (user != null)
             {
@@ -85,14 +70,13 @@ namespace CitadelsApp
             else
             {
                 IncorrectAuth = Visibility.Visible;
-            }*/
+            }
         }
 
-        private bool CanExecuteRegisterCommand(object param)
+        private bool CanExecuteLoginCommand(object param)
         {
-            return true;
+            return !string.IsNullOrWhiteSpace(Login) && !string.IsNullOrWhiteSpace(Password);
         }
-
         #endregion
 
         #endregion
@@ -101,8 +85,10 @@ namespace CitadelsApp
 
         private void InitChannel()
         {
-            //InstanceContext context = new InstanceContext(new PlayerClient());
-            //Service = new GameServiceClient(context);
+            InstanceContext context = new InstanceContext(new PlayerClient());
+            DuplexService = new DuplexServiceClient(context);
+            
+            RequestService = new GameServiceClient();
         }
         #endregion
     }

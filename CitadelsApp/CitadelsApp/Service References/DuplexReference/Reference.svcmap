@@ -26,7 +26,6 @@
     <MetadataFile FileName="item.disco" MetadataType="Disco" ID="e70704a1-b554-4b0a-a3c0-2ca57606fd41" SourceId="1" SourceUrl="http://localhost:9090/DuplexService/?disco" />
     <MetadataFile FileName="item.xsd" MetadataType="Schema" ID="8f00c588-b14b-4bfb-b6b1-e179f9e4bcb7" SourceId="1" SourceUrl="http://localhost:9090/DuplexService/?xsd=xsd0" />
     <MetadataFile FileName="item1.xsd" MetadataType="Schema" ID="6130681d-45f1-4063-990e-0a3eb1ba9851" SourceId="1" SourceUrl="http://localhost:9090/DuplexService/?xsd=xsd1" />
-    <MetadataFile FileName="item2.xsd" MetadataType="Schema" ID="407432b4-874d-44df-b5c9-ad48ce2c6c3f" SourceId="1" SourceUrl="http://localhost:9090/DuplexService/?xsd=xsd2" />
   </Metadata>
   <Extensions>
     <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />

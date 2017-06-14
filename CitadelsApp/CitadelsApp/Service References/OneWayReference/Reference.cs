@@ -241,12 +241,6 @@ namespace CitadelsApp.OneWayReference {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGameService/Login", ReplyAction="http://tempuri.org/IGameService/LoginResponse")]
         System.Threading.Tasks.Task<CitadelsApp.OneWayReference.User> LoginAsync(string login, string password);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGameService/Register", ReplyAction="http://tempuri.org/IGameService/RegisterResponse")]
-        CitadelsApp.OneWayReference.User Register(string login, string password, string email);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGameService/Register", ReplyAction="http://tempuri.org/IGameService/RegisterResponse")]
-        System.Threading.Tasks.Task<CitadelsApp.OneWayReference.User> RegisterAsync(string login, string password, string email);
-        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGameService/CreateGame", ReplyAction="http://tempuri.org/IGameService/CreateGameResponse")]
         CitadelsApp.OneWayReference.Game CreateGame(string gameTitle, int maxPlayers, int creatorId);
         
@@ -264,6 +258,12 @@ namespace CitadelsApp.OneWayReference {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGameService/ConnectGame", ReplyAction="http://tempuri.org/IGameService/ConnectGameResponse")]
         System.Threading.Tasks.Task<CitadelsApp.OneWayReference.Game> ConnectGameAsync(int gameId, int userId);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGameService/GetAllUsers", ReplyAction="http://tempuri.org/IGameService/GetAllUsersResponse")]
+        CitadelsApp.OneWayReference.User[] GetAllUsers();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGameService/GetAllUsers", ReplyAction="http://tempuri.org/IGameService/GetAllUsersResponse")]
+        System.Threading.Tasks.Task<CitadelsApp.OneWayReference.User[]> GetAllUsersAsync();
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -301,14 +301,6 @@ namespace CitadelsApp.OneWayReference {
             return base.Channel.LoginAsync(login, password);
         }
         
-        public CitadelsApp.OneWayReference.User Register(string login, string password, string email) {
-            return base.Channel.Register(login, password, email);
-        }
-        
-        public System.Threading.Tasks.Task<CitadelsApp.OneWayReference.User> RegisterAsync(string login, string password, string email) {
-            return base.Channel.RegisterAsync(login, password, email);
-        }
-        
         public CitadelsApp.OneWayReference.Game CreateGame(string gameTitle, int maxPlayers, int creatorId) {
             return base.Channel.CreateGame(gameTitle, maxPlayers, creatorId);
         }
@@ -331,6 +323,14 @@ namespace CitadelsApp.OneWayReference {
         
         public System.Threading.Tasks.Task<CitadelsApp.OneWayReference.Game> ConnectGameAsync(int gameId, int userId) {
             return base.Channel.ConnectGameAsync(gameId, userId);
+        }
+        
+        public CitadelsApp.OneWayReference.User[] GetAllUsers() {
+            return base.Channel.GetAllUsers();
+        }
+        
+        public System.Threading.Tasks.Task<CitadelsApp.OneWayReference.User[]> GetAllUsersAsync() {
+            return base.Channel.GetAllUsersAsync();
         }
     }
 }

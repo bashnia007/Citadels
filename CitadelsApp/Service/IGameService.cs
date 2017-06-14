@@ -9,16 +9,22 @@ namespace Service
     {
         [OperationContract]
         User Login(string login, string password);
-        [OperationContract]
-        User Register(string login, string password, string email);
-        [OperationContract]
 
+        [OperationContract]
         Game CreateGame(string gameTitle, int maxPlayers, int creatorId);
+
         [OperationContract]
         List<Game> GetAvaivableGames();
 
         [OperationContract]
         Game ConnectGame(int gameId, int userId);
-        
+
+
+        #region Временные методы
+
+        [OperationContract]
+        List<User> GetAllUsers();
+
+        #endregion
     }
 }
