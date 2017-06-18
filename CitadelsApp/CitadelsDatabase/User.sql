@@ -1,7 +1,0 @@
-﻿CREATE TABLE [dbo].[User]
-(
-	[Id] INT IDENTITY(1,1) NOT NULL PRIMARY KEY, 
-    [Login] NVARCHAR(50) NOT NULL, 
-    [Password] NVARCHAR(MAX) NOT NULL, 
-    [Email] NVARCHAR(MAX) NULL
-)

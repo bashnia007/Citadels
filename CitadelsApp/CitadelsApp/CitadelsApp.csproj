@@ -71,6 +71,7 @@
     <Compile Include="AdditionalWindows\CreateGame.xaml.cs">
       <DependentUpon>CreateGame.xaml</DependentUpon>
     </Compile>
+    <Compile Include="DAL\DuplexProxy.cs" />
     <Compile Include="DAL\PlayerClient.cs" />
     <Compile Include="DAL\ServiceProxy.cs" />
     <Compile Include="Game\ViewModels\GameViewModel.cs" />

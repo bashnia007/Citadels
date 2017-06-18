@@ -6,6 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Input;
+using CitadelsApp.DAL;
 using CitadelsApp.Game.Views;
 using CitadelsApp.KindOfMagic;
 
@@ -37,7 +38,7 @@ namespace CitadelsApp.Game.ViewModels
         {
             BottomMenu = new BottomMenu();
             CenterView = new CenterView {DataContext = this};
-            Players = new ObservableCollection<Player>
+            /*Players = new ObservableCollection<Player>
             {
                 new Player
                 {
@@ -63,7 +64,7 @@ namespace CitadelsApp.Game.ViewModels
                     CardsCount = 5,
                     GoldCount = 2
                 },
-            };
+            };*/
         }
         #endregion
 
@@ -83,11 +84,34 @@ namespace CitadelsApp.Game.ViewModels
         {
             return true;
         }
+
+        #region StartGameCommand
+
+        private RelayCommand _startGameCommand;
+
+        public ICommand StartGameCommand
+            =>
+                _startGameCommand ??
+                (_startGameCommand = new RelayCommand(ExecuteStartGameCommand, CanExecuteStartGameCommand));
+
+        private void ExecuteStartGameCommand(object param)
+        {
+            Task.Run(() =>
+            {
+                DuplexProxy.StartGame();
+            });
+        }
+
+        private bool CanExecuteStartGameCommand(object param)
+        {
+            return true;
+        }
+        #endregion
         #endregion
 
         #region Members
 
-        private void Init()
+        public void Init()
         {
             Window =  new GameUI {DataContext = this};
             BottomMenu = new BottomMenu {DataContext = this};

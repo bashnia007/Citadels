@@ -7,10 +7,19 @@ using System.Threading.Tasks;
 
 namespace Service
 {
-    [ServiceContract(CallbackContract = typeof(IPlayerClient))]
+    [ServiceContract(SessionMode = SessionMode.Required, CallbackContract = typeof(IPlayerClient))]
     public interface IDuplexService
     {
         [OperationContract(IsOneWay = true)]
         void SendMessage(string message);
+
+        [OperationContract(IsOneWay = true)]
+        void StartGame();
+
+        [OperationContract(IsOneWay = true)]
+        void ConnectGame(string login);
+
+        [OperationContract(IsOneWay = true)]
+        void CreateGame(string login);
     }
 }

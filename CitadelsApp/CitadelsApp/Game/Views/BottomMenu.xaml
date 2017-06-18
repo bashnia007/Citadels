@@ -54,9 +54,14 @@
         </Border>
         <Border Grid.Column="2">
             <Grid>
-                <Button Content="Выход"
+                <StackPanel>
+                    <Button Content="Начать игру"
+                        Style="{DynamicResource Button.CommonStyle}"
+                        Command="{Binding StartGameCommand}"/>
+                    <Button Content="Выход"
                         Style="{DynamicResource Button.CommonStyle}"
                         Command="{Binding ExitGameCommand}"/>
+                </StackPanel>
             </Grid>
         </Border>
     </Grid>

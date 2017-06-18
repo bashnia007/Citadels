@@ -12,7 +12,7 @@ namespace CitadelsApp.DuplexReference {
     
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ServiceModel.ServiceContractAttribute(ConfigurationName="DuplexReference.IDuplexService", CallbackContract=typeof(CitadelsApp.DuplexReference.IDuplexServiceCallback))]
+    [System.ServiceModel.ServiceContractAttribute(ConfigurationName="DuplexReference.IDuplexService", CallbackContract=typeof(CitadelsApp.DuplexReference.IDuplexServiceCallback), SessionMode=System.ServiceModel.SessionMode.Required)]
     public interface IDuplexService {
         
         [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IDuplexService/SendMessage")]
@@ -20,6 +20,24 @@ namespace CitadelsApp.DuplexReference {
         
         [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IDuplexService/SendMessage")]
         System.Threading.Tasks.Task SendMessageAsync(string message);
+        
+        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IDuplexService/StartGame")]
+        void StartGame();
+        
+        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IDuplexService/StartGame")]
+        System.Threading.Tasks.Task StartGameAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IDuplexService/ConnectGame")]
+        void ConnectGame(string login);
+        
+        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IDuplexService/ConnectGame")]
+        System.Threading.Tasks.Task ConnectGameAsync(string login);
+        
+        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IDuplexService/CreateGame")]
+        void CreateGame(string login);
+        
+        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IDuplexService/CreateGame")]
+        System.Threading.Tasks.Task CreateGameAsync(string login);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -27,6 +45,9 @@ namespace CitadelsApp.DuplexReference {
         
         [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IDuplexService/RecieveMessage")]
         void RecieveMessage(string user, string message);
+        
+        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IDuplexService/StartClientGame")]
+        void StartClientGame();
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -63,6 +84,30 @@ namespace CitadelsApp.DuplexReference {
         
         public System.Threading.Tasks.Task SendMessageAsync(string message) {
             return base.Channel.SendMessageAsync(message);
+        }
+        
+        public void StartGame() {
+            base.Channel.StartGame();
+        }
+        
+        public System.Threading.Tasks.Task StartGameAsync() {
+            return base.Channel.StartGameAsync();
+        }
+        
+        public void ConnectGame(string login) {
+            base.Channel.ConnectGame(login);
+        }
+        
+        public System.Threading.Tasks.Task ConnectGameAsync(string login) {
+            return base.Channel.ConnectGameAsync(login);
+        }
+        
+        public void CreateGame(string login) {
+            base.Channel.CreateGame(login);
+        }
+        
+        public System.Threading.Tasks.Task CreateGameAsync(string login) {
+            return base.Channel.CreateGameAsync(login);
         }
     }
 }

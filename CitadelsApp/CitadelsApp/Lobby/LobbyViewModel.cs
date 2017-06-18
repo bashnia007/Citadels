@@ -62,11 +62,19 @@ namespace CitadelsApp
 
         private async void ExecuteConnectCommand(object param)
         {
-            var game = await Task.Run(() => ServiceProxy.ConnectGame(SelectedGame.Id, _userId));
+            /*var game = await Task.Run(() => ServiceProxy.ConnectGame(SelectedGame.Id, _userId));
             if (game != null)
             {
                 var gameViewModel = new GameViewModel();
-            }
+                gameViewModel.Init();
+            }*/
+
+            await Task.Run(() =>
+            {
+                DuplexProxy.ConnectGame("Вася");
+            });
+            var gameViewModel = new GameViewModel();
+            gameViewModel.Init();
         }
 
         private bool CanExecuteConnectCommand(object param)
@@ -88,7 +96,7 @@ namespace CitadelsApp
             _dialogWindow = new CreateGame { DataContext = this };
             if (_dialogWindow.ShowDialog() == true)
             {
-                OneWayReference.Game game = null;
+                /*OneWayReference.Game game = null;
                 await Task.Run(() =>
                 {
                     game = ServiceProxy.CreateGame(NewGame.Description, NewGame.PlayersCount, _userId);
@@ -96,7 +104,14 @@ namespace CitadelsApp
                 if (game != null)
                 {
                     var gameViewModel = new GameViewModel();
-                }
+                    gameViewModel.Init();
+                }*/
+                await Task.Run(() =>
+                 {
+                     DuplexProxy.CreateGame("Петя");
+                 });
+                var gameViewModel = new GameViewModel();
+                gameViewModel.Init();
             }
             ExecuteRefreshCommand(param);
         }

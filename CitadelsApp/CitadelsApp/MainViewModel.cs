@@ -27,12 +27,10 @@ namespace CitadelsApp
         public string Password { get; set; }
         public object CurrentContent { get; set; }
         public Visibility IncorrectAuth { get; set; }
-        public DuplexServiceClient DuplexService { get; set; }
         #endregion
 
         public MainViewModel()
         {
-            InitChannel();
             _dialogWindow = new LoginWindow {DataContext = this};
             IncorrectAuth = Visibility.Collapsed;
             if (_dialogWindow.ShowDialog() != true)
@@ -79,12 +77,7 @@ namespace CitadelsApp
         #endregion
 
         #region Members
-
-        private void InitChannel()
-        {
-            InstanceContext context = new InstanceContext(new PlayerClient());
-            DuplexService = new DuplexServiceClient(context);
-        }
+        
         #endregion
     }
 }

@@ -16,5 +16,11 @@ namespace Service
         /// <param name="message"></param>
         [OperationContract(IsOneWay = true)]
         void RecieveMessage(string user, string message);
+
+        /// <summary>
+        /// Метод, запускающий игру
+        /// </summary>
+        [OperationContract(IsOneWay = true)]
+        void StartClientGame();
     }
 }

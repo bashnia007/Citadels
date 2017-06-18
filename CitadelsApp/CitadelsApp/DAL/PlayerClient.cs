@@ -3,22 +3,20 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
+using CitadelsApp.DuplexReference;
 
 namespace CitadelsApp.DAL
 {
-    public class PlayerClient //: IGameServiceCallback
+    public class PlayerClient : IDuplexServiceCallback
     {
-       /* public void RecieveMessage(string user, string message)
+        public void RecieveMessage(string user, string message)
         {
         }
 
-        public void GetLoginUser(User user)
+        public void StartClientGame()
         {
-
+            MessageBox.Show("Игра началась!");
         }
-
-        public void GetRegisterUser(User user)
-        {
-        }*/
     }
 }
