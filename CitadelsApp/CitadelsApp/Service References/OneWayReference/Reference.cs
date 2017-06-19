@@ -23,9 +23,6 @@ namespace CitadelsApp.OneWayReference {
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string EmailField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
         private int IdField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
@@ -41,19 +38,6 @@ namespace CitadelsApp.OneWayReference {
             }
             set {
                 this.extensionDataField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Email {
-            get {
-                return this.EmailField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.EmailField, value) != true)) {
-                    this.EmailField = value;
-                    this.RaisePropertyChanged("Email");
-                }
             }
         }
         
@@ -116,22 +100,10 @@ namespace CitadelsApp.OneWayReference {
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private int CreatorIdField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string DescriptionField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private int IdField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private bool IsAvaivableField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private CitadelsApp.OneWayReference.User[] PlayersField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private int PlayersCountField;
         
         [global::System.ComponentModel.BrowsableAttribute(false)]
         public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
@@ -140,19 +112,6 @@ namespace CitadelsApp.OneWayReference {
             }
             set {
                 this.extensionDataField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public int CreatorId {
-            get {
-                return this.CreatorIdField;
-            }
-            set {
-                if ((this.CreatorIdField.Equals(value) != true)) {
-                    this.CreatorIdField = value;
-                    this.RaisePropertyChanged("CreatorId");
-                }
             }
         }
         
@@ -182,45 +141,6 @@ namespace CitadelsApp.OneWayReference {
             }
         }
         
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public bool IsAvaivable {
-            get {
-                return this.IsAvaivableField;
-            }
-            set {
-                if ((this.IsAvaivableField.Equals(value) != true)) {
-                    this.IsAvaivableField = value;
-                    this.RaisePropertyChanged("IsAvaivable");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public CitadelsApp.OneWayReference.User[] Players {
-            get {
-                return this.PlayersField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.PlayersField, value) != true)) {
-                    this.PlayersField = value;
-                    this.RaisePropertyChanged("Players");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public int PlayersCount {
-            get {
-                return this.PlayersCountField;
-            }
-            set {
-                if ((this.PlayersCountField.Equals(value) != true)) {
-                    this.PlayersCountField = value;
-                    this.RaisePropertyChanged("PlayersCount");
-                }
-            }
-        }
-        
         public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
         
         protected void RaisePropertyChanged(string propertyName) {
@@ -241,23 +161,11 @@ namespace CitadelsApp.OneWayReference {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGameService/Login", ReplyAction="http://tempuri.org/IGameService/LoginResponse")]
         System.Threading.Tasks.Task<CitadelsApp.OneWayReference.User> LoginAsync(string login, string password);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGameService/CreateGame", ReplyAction="http://tempuri.org/IGameService/CreateGameResponse")]
-        CitadelsApp.OneWayReference.Game CreateGame(string gameTitle, int maxPlayers, int creatorId);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGameService/CreateGame", ReplyAction="http://tempuri.org/IGameService/CreateGameResponse")]
-        System.Threading.Tasks.Task<CitadelsApp.OneWayReference.Game> CreateGameAsync(string gameTitle, int maxPlayers, int creatorId);
-        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGameService/GetAvaivableGames", ReplyAction="http://tempuri.org/IGameService/GetAvaivableGamesResponse")]
         CitadelsApp.OneWayReference.Game[] GetAvaivableGames();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGameService/GetAvaivableGames", ReplyAction="http://tempuri.org/IGameService/GetAvaivableGamesResponse")]
         System.Threading.Tasks.Task<CitadelsApp.OneWayReference.Game[]> GetAvaivableGamesAsync();
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGameService/ConnectGame", ReplyAction="http://tempuri.org/IGameService/ConnectGameResponse")]
-        CitadelsApp.OneWayReference.Game ConnectGame(int gameId, int userId);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGameService/ConnectGame", ReplyAction="http://tempuri.org/IGameService/ConnectGameResponse")]
-        System.Threading.Tasks.Task<CitadelsApp.OneWayReference.Game> ConnectGameAsync(int gameId, int userId);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGameService/GetAllUsers", ReplyAction="http://tempuri.org/IGameService/GetAllUsersResponse")]
         CitadelsApp.OneWayReference.User[] GetAllUsers();
@@ -301,28 +209,12 @@ namespace CitadelsApp.OneWayReference {
             return base.Channel.LoginAsync(login, password);
         }
         
-        public CitadelsApp.OneWayReference.Game CreateGame(string gameTitle, int maxPlayers, int creatorId) {
-            return base.Channel.CreateGame(gameTitle, maxPlayers, creatorId);
-        }
-        
-        public System.Threading.Tasks.Task<CitadelsApp.OneWayReference.Game> CreateGameAsync(string gameTitle, int maxPlayers, int creatorId) {
-            return base.Channel.CreateGameAsync(gameTitle, maxPlayers, creatorId);
-        }
-        
         public CitadelsApp.OneWayReference.Game[] GetAvaivableGames() {
             return base.Channel.GetAvaivableGames();
         }
         
         public System.Threading.Tasks.Task<CitadelsApp.OneWayReference.Game[]> GetAvaivableGamesAsync() {
             return base.Channel.GetAvaivableGamesAsync();
-        }
-        
-        public CitadelsApp.OneWayReference.Game ConnectGame(int gameId, int userId) {
-            return base.Channel.ConnectGame(gameId, userId);
-        }
-        
-        public System.Threading.Tasks.Task<CitadelsApp.OneWayReference.Game> ConnectGameAsync(int gameId, int userId) {
-            return base.Channel.ConnectGameAsync(gameId, userId);
         }
         
         public CitadelsApp.OneWayReference.User[] GetAllUsers() {

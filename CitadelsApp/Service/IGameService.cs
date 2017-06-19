@@ -11,13 +11,7 @@ namespace Service
         User Login(string login, string password);
 
         [OperationContract]
-        Game CreateGame(string gameTitle, int maxPlayers, int creatorId);
-
-        [OperationContract]
         List<Game> GetAvaivableGames();
-
-        [OperationContract]
-        Game ConnectGame(int gameId, int userId);
 
 
         #region Временные методы

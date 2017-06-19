@@ -21,21 +21,6 @@ namespace CitadelsApp.DAL
                 return proxy.GetAvaivableGames().ToList();
             }
         }
-
-        public static OneWayReference.Game ConnectGame(int gameId, int userId)
-        {
-            using (var proxy = new GameServiceClient())
-            {
-                return proxy.ConnectGame(gameId, userId);
-            }
-        }
-
-        public static OneWayReference.Game CreateGame(string gameTitle, int maxPlayers, int userId)
-        {
-            using (var proxy = new GameServiceClient())
-            {
-                return proxy.CreateGame(gameTitle, maxPlayers, userId);
-            }
-        }
+        
     }
 }

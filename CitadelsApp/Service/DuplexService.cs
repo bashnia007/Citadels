@@ -23,6 +23,7 @@ namespace Service
             {
                 var client = user.Key;
                 client?.StartClientGame();
+                DistributeWonders();
             }
         }
 
@@ -32,7 +33,7 @@ namespace Service
             _users.Add(callback, login);
             using (var context = new DatabaseContext())
             {
-                var game = context.Games.FirstOrDefault(g => g.Description == "Пробная игра");
+                //var game = context.Games.FirstOrDefault(g => g.Description == "Пробная игра");
             }
         }
 
@@ -40,7 +41,7 @@ namespace Service
         {
             var callback = OperationContext.Current.GetCallbackChannel<IPlayerClient>();
             _users.Add(callback, login);
-            using (var context = new DatabaseContext())
+            /*using (var context = new DatabaseContext())
             {
                 var game = context.Games.Add(new Game
                 {
@@ -51,6 +52,19 @@ namespace Service
                     Players = new List<User>()
                 });
                 context.SaveChanges();
+            }*/
+        }
+
+        public void DistributeWonders()
+        {
+            //var wonders = new List<>();
+            using (var context = new DatabaseContext())
+            {
+                var wonders = context.Wonders.ToList();
+                foreach (var user in _users)
+                {
+                    
+                }
             }
         }
     }

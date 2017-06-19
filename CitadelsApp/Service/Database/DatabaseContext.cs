@@ -9,12 +9,13 @@ namespace Service.Database
 {
     class DatabaseContext : DbContext
     {
-        public DatabaseContext() : base("DbConnection")
+        public DatabaseContext() : base("WondersDB")
         {
             
         }
 
         public DbSet<User> Users { get; set; }
         public DbSet<Game> Games { get; set; }
+        public DbSet<Wonder> Wonders { get; set; }
     }
 }

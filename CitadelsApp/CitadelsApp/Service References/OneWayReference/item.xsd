@@ -16,22 +16,6 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
-  <xs:element name="CreateGame">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element minOccurs="0" name="gameTitle" nillable="true" type="xs:string" />
-        <xs:element minOccurs="0" name="maxPlayers" type="xs:int" />
-        <xs:element minOccurs="0" name="creatorId" type="xs:int" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="CreateGameResponse">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/Service.Database" minOccurs="0" name="CreateGameResult" nillable="true" type="q2:Game" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
   <xs:element name="GetAvaivableGames">
     <xs:complexType>
       <xs:sequence />
@@ -40,22 +24,7 @@
   <xs:element name="GetAvaivableGamesResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/Service.Database" minOccurs="0" name="GetAvaivableGamesResult" nillable="true" type="q3:ArrayOfGame" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="ConnectGame">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element minOccurs="0" name="gameId" type="xs:int" />
-        <xs:element minOccurs="0" name="userId" type="xs:int" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="ConnectGameResponse">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/Service.Database" minOccurs="0" name="ConnectGameResult" nillable="true" type="q4:Game" />
+        <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/Service.Database" minOccurs="0" name="GetAvaivableGamesResult" nillable="true" type="q2:ArrayOfGame" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -67,7 +36,7 @@
   <xs:element name="GetAllUsersResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/Service.Database" minOccurs="0" name="GetAllUsersResult" nillable="true" type="q5:ArrayOfUser" />
+        <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/Service.Database" minOccurs="0" name="GetAllUsersResult" nillable="true" type="q3:ArrayOfUser" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
