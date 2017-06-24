@@ -245,7 +245,7 @@
     <xsd:schema targetNamespace="http://tempuri.org/Imports">
       <xsd:import schemaLocation="http://localhost:9090/GameService/?xsd=xsd0" namespace="http://tempuri.org/" />
       <xsd:import schemaLocation="http://localhost:9090/GameService/?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
-      <xsd:import schemaLocation="http://localhost:9090/GameService/?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/Service.Database" />
+      <xsd:import schemaLocation="http://localhost:9090/GameService/?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/Service.DataBaseModel" />
     </xsd:schema>
   </wsdl:types>
   <wsdl:message name="IGameService_Login_InputMessage">

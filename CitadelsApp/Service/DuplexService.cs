@@ -4,7 +4,6 @@ using System.Linq;
 using System.ServiceModel;
 using System.Text;
 using System.Threading.Tasks;
-using Service.Database;
 using Service.DataBaseModel;
 
 namespace Service
@@ -32,7 +31,7 @@ namespace Service
         {
             var callback = OperationContext.Current.GetCallbackChannel<IPlayerClient>();
             _users.Add(callback, login);
-            using (var context = new DatabaseContext())
+            using (var context = new DatabaseModel())
             {
                 //var game = context.Games.FirstOrDefault(g => g.Description == "Пробная игра");
             }

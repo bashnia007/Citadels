@@ -1,5 +1,4 @@
 ﻿using System.ServiceModel;
-using Service.Database;
 
 namespace Service
 {
