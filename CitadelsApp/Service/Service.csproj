@@ -62,6 +62,8 @@
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
     <Reference Include="System.ServiceModel" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -71,10 +73,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Database\DatabaseContext.cs" />
-    <Compile Include="Database\Game.cs" />
-    <Compile Include="Database\User.cs" />
-    <Compile Include="Database\Wonder.cs" />
+    <Compile Include="DataBaseModel\DatabaseModel.cs" />
+    <Compile Include="DataBaseModel\Game.cs" />
+    <Compile Include="DataBaseModel\User.cs" />
+    <Compile Include="DataBaseModel\Wonder.cs" />
     <Compile Include="DuplexService.cs" />
     <Compile Include="GameService.cs" />
     <Compile Include="IDuplexService.cs" />
@@ -84,7 +86,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="App.config" />
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="app.manifest" />
     <None Include="packages.config" />
   </ItemGroup>

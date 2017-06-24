@@ -5,6 +5,7 @@ using System.ServiceModel;
 using System.Text;
 using System.Threading.Tasks;
 using Service.Database;
+using Service.DataBaseModel;
 
 namespace Service
 {
@@ -57,8 +58,7 @@ namespace Service
 
         public void DistributeWonders()
         {
-            //var wonders = new List<>();
-            using (var context = new DatabaseContext())
+            using (var context = new DatabaseModel())
             {
                 var wonders = context.Wonders.ToList();
                 foreach (var user in _users)

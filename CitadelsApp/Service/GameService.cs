@@ -3,8 +3,7 @@ using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
 using System.ServiceModel;
-using Service.Database;
-using Game = Service.Database.Game;
+using Service.DataBaseModel;
 
 namespace Service
 {
@@ -13,7 +12,7 @@ namespace Service
     {
         public User Login(string login, string password)
         {
-            using (var context = new DatabaseContext())
+            using (var context = new DatabaseModel())
             {
                 var user = context.Users.FirstOrDefault(u => u.Login == login);
                 if (user != null) return user.Password == password ? user : null;
@@ -29,7 +28,7 @@ namespace Service
 
         public List<Game> GetAvaivableGames()
         {
-            using (var context = new DatabaseContext())
+            using (var context = new DatabaseModel())
             {
                 return context.Games.ToList();
             }
@@ -40,7 +39,7 @@ namespace Service
 
         public List<User> GetAllUsers()
         {
-            using (var context = new DatabaseContext())
+            using (var context = new DatabaseModel())
             {
                 return context.Users.ToList();
             }
