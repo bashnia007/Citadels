@@ -9,7 +9,163 @@
 //------------------------------------------------------------------------------
 
 namespace CitadelsApp.DuplexReference {
+    using System.Runtime.Serialization;
+    using System;
     
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="Wonder", Namespace="http://schemas.datacontract.org/2004/07/Service.Model")]
+    [System.SerializableAttribute()]
+    public partial class Wonder : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int IdField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string NameField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private CitadelsApp.DuplexReference.Resource ResourceField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Nullable<int> ResourceIdField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int Id {
+            get {
+                return this.IdField;
+            }
+            set {
+                if ((this.IdField.Equals(value) != true)) {
+                    this.IdField = value;
+                    this.RaisePropertyChanged("Id");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Name {
+            get {
+                return this.NameField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.NameField, value) != true)) {
+                    this.NameField = value;
+                    this.RaisePropertyChanged("Name");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public CitadelsApp.DuplexReference.Resource Resource {
+            get {
+                return this.ResourceField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.ResourceField, value) != true)) {
+                    this.ResourceField = value;
+                    this.RaisePropertyChanged("Resource");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<int> ResourceId {
+            get {
+                return this.ResourceIdField;
+            }
+            set {
+                if ((this.ResourceIdField.Equals(value) != true)) {
+                    this.ResourceIdField = value;
+                    this.RaisePropertyChanged("ResourceId");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="Resource", Namespace="http://schemas.datacontract.org/2004/07/Service.Model")]
+    [System.SerializableAttribute()]
+    public partial class Resource : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int IdField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string NameField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int Id {
+            get {
+                return this.IdField;
+            }
+            set {
+                if ((this.IdField.Equals(value) != true)) {
+                    this.IdField = value;
+                    this.RaisePropertyChanged("Id");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Name {
+            get {
+                return this.NameField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.NameField, value) != true)) {
+                    this.NameField = value;
+                    this.RaisePropertyChanged("Name");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ServiceModel.ServiceContractAttribute(ConfigurationName="DuplexReference.IDuplexService", CallbackContract=typeof(CitadelsApp.DuplexReference.IDuplexServiceCallback), SessionMode=System.ServiceModel.SessionMode.Required)]
@@ -28,16 +184,16 @@ namespace CitadelsApp.DuplexReference {
         System.Threading.Tasks.Task StartGameAsync();
         
         [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IDuplexService/ConnectGame")]
-        void ConnectGame(string login);
+        void ConnectGame(int id);
         
         [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IDuplexService/ConnectGame")]
-        System.Threading.Tasks.Task ConnectGameAsync(string login);
+        System.Threading.Tasks.Task ConnectGameAsync(int id);
         
         [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IDuplexService/CreateGame")]
-        void CreateGame(string login);
+        void CreateGame(int id);
         
         [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IDuplexService/CreateGame")]
-        System.Threading.Tasks.Task CreateGameAsync(string login);
+        System.Threading.Tasks.Task CreateGameAsync(int id);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -48,6 +204,9 @@ namespace CitadelsApp.DuplexReference {
         
         [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IDuplexService/StartClientGame")]
         void StartClientGame();
+        
+        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IDuplexService/CreatePlayer")]
+        void CreatePlayer(CitadelsApp.DuplexReference.Wonder wonder);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -94,20 +253,20 @@ namespace CitadelsApp.DuplexReference {
             return base.Channel.StartGameAsync();
         }
         
-        public void ConnectGame(string login) {
-            base.Channel.ConnectGame(login);
+        public void ConnectGame(int id) {
+            base.Channel.ConnectGame(id);
         }
         
-        public System.Threading.Tasks.Task ConnectGameAsync(string login) {
-            return base.Channel.ConnectGameAsync(login);
+        public System.Threading.Tasks.Task ConnectGameAsync(int id) {
+            return base.Channel.ConnectGameAsync(id);
         }
         
-        public void CreateGame(string login) {
-            base.Channel.CreateGame(login);
+        public void CreateGame(int id) {
+            base.Channel.CreateGame(id);
         }
         
-        public System.Threading.Tasks.Task CreateGameAsync(string login) {
-            return base.Channel.CreateGameAsync(login);
+        public System.Threading.Tasks.Task CreateGameAsync(int id) {
+            return base.Channel.CreateGameAsync(id);
         }
     }
 }

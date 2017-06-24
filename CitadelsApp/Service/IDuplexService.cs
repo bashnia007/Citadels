@@ -4,9 +4,11 @@ using System.Linq;
 using System.ServiceModel;
 using System.Text;
 using System.Threading.Tasks;
+using Service.Model;
 
 namespace Service
 {
+
     [ServiceContract(SessionMode = SessionMode.Required, CallbackContract = typeof(IPlayerClient))]
     public interface IDuplexService
     {
@@ -17,9 +19,9 @@ namespace Service
         void StartGame();
 
         [OperationContract(IsOneWay = true)]
-        void ConnectGame(string login);
+        void ConnectGame(int id);
 
         [OperationContract(IsOneWay = true)]
-        void CreateGame(string login);
+        void CreateGame(int id);
     }
 }

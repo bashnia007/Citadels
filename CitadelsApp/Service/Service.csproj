@@ -73,15 +73,23 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DataBaseModel\DatabaseModel.cs" />
-    <Compile Include="DataBaseModel\Game.cs" />
-    <Compile Include="DataBaseModel\User.cs" />
-    <Compile Include="DataBaseModel\Wonder.cs" />
     <Compile Include="DuplexService.cs" />
     <Compile Include="GameService.cs" />
     <Compile Include="IDuplexService.cs" />
     <Compile Include="IGameService.cs" />
     <Compile Include="IPlayerClient.cs" />
+    <Compile Include="Model\Award.cs" />
+    <Compile Include="Model\Card.cs" />
+    <Compile Include="Model\CardType.cs" />
+    <Compile Include="Model\DbModel.cs" />
+    <Compile Include="Model\EffectType.cs" />
+    <Compile Include="Model\Game.cs" />
+    <Compile Include="Model\Player.cs" />
+    <Compile Include="Model\Price.cs" />
+    <Compile Include="Model\Resource.cs" />
+    <Compile Include="Model\Stage.cs" />
+    <Compile Include="Model\User.cs" />
+    <Compile Include="Model\Wonder.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

@@ -1,17 +1,18 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.Serialization;
 using System.ServiceModel;
 using System.Text;
 using System.Threading.Tasks;
-using Service.DataBaseModel;
+using Service.Model;
 
 namespace Service
 {
-    [ServiceBehavior(ConcurrencyMode = ConcurrencyMode.Single, InstanceContextMode = InstanceContextMode.Single)]
+    [ServiceBehavior(ConcurrencyMode = ConcurrencyMode.Multiple, InstanceContextMode = InstanceContextMode.Single)]
     public class DuplexService : IDuplexService
     {
-        private Dictionary<IPlayerClient, string> _users = new Dictionary<IPlayerClient, string>();
+        private Dictionary<IPlayerClient, int> _callbackUsers = new Dictionary<IPlayerClient, int>();
         public void SendMessage(string message)
         {
 
@@ -19,52 +20,55 @@ namespace Service
 
         public void StartGame()
         {
-            foreach (var user in _users)
+            foreach (var user in _callbackUsers)
             {
                 var client = user.Key;
                 client?.StartClientGame();
-                DistributeWonders();
             }
+            DistributeWonders();
         }
 
-        public void ConnectGame(string login)
+        public void ConnectGame(int id)
         {
             var callback = OperationContext.Current.GetCallbackChannel<IPlayerClient>();
-            _users.Add(callback, login);
-            using (var context = new DatabaseModel())
-            {
-                //var game = context.Games.FirstOrDefault(g => g.Description == "Пробная игра");
-            }
+            _callbackUsers.Add(callback, id);
         }
 
-        public void CreateGame(string login)
+        public void CreateGame(int id)
         {
             var callback = OperationContext.Current.GetCallbackChannel<IPlayerClient>();
-            _users.Add(callback, login);
-            /*using (var context = new DatabaseContext())
-            {
-                var game = context.Games.Add(new Game
-                {
-                    CreatorId = 1,
-                    IsAvaivable = true,
-                    Description = "Пробная игра",
-                    PlayersCount = 4,
-                    Players = new List<User>()
-                });
-                context.SaveChanges();
-            }*/
+            _callbackUsers.Add(callback, id);
         }
 
         public void DistributeWonders()
         {
-            using (var context = new DatabaseModel())
+            using (var context = new DbModel())
             {
                 var wonders = context.Wonders.ToList();
-                foreach (var user in _users)
+                var rnd = new Random();
+                foreach (var callbackUser in _callbackUsers)
                 {
+                    var wonder = wonders[rnd.Next(wonders.Count)];
+                    wonders.Remove(wonder);
+                    var player = context.Players.Add(new Player
+                    {
+                        UserId = callbackUser.Value,
+                        GameId = 1,
+                        WonderId = wonder.Id
+                    });
+                    context.SaveChanges();
                     
+                    var client = callbackUser.Key;
+                    client.CreatePlayer(player.Wonder);
                 }
             }
         }
+    }
+
+    [DataContract]
+    public class Test
+    {
+        [DataMember]
+        public int TestId { get; set; }
     }
 }

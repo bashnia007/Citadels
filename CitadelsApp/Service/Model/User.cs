@@ -1,4 +1,4 @@
-namespace Service.DataBaseModel
+namespace Service.Model
 {
     using System;
     using System.Collections.Generic;
@@ -9,6 +9,11 @@ namespace Service.DataBaseModel
     [Table("User")]
     public partial class User
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public User()
+        {
+        }
+
         public int Id { get; set; }
 
         [Required]
@@ -18,5 +23,6 @@ namespace Service.DataBaseModel
         [Required]
         [StringLength(50)]
         public string Password { get; set; }
+        
     }
 }

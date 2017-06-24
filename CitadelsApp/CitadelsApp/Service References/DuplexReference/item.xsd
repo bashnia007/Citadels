@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <xs:schema xmlns:tns="http://tempuri.org/" elementFormDefault="qualified" targetNamespace="http://tempuri.org/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://localhost:9090/DuplexService/?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/Service.Model" />
   <xs:element name="SendMessage">
     <xs:complexType>
       <xs:sequence>
@@ -15,14 +16,14 @@
   <xs:element name="ConnectGame">
     <xs:complexType>
       <xs:sequence>
-        <xs:element minOccurs="0" name="login" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="id" type="xs:int" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="CreateGame">
     <xs:complexType>
       <xs:sequence>
-        <xs:element minOccurs="0" name="login" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="id" type="xs:int" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -37,6 +38,13 @@
   <xs:element name="StartClientGame">
     <xs:complexType>
       <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CreatePlayer">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/Service.Model" minOccurs="0" name="wonder" nillable="true" type="q1:Wonder" />
+      </xs:sequence>
     </xs:complexType>
   </xs:element>
 </xs:schema>

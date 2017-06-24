@@ -1,4 +1,4 @@
-namespace Service.DataBaseModel
+namespace Service.Model
 {
     using System;
     using System.Collections.Generic;
@@ -6,13 +6,17 @@ namespace Service.DataBaseModel
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Data.Entity.Spatial;
 
-    [Table("Game")]
-    public partial class Game
+    [Table("Price")]
+    public partial class Price
     {
         [DatabaseGenerated(DatabaseGeneratedOption.None)]
         public int Id { get; set; }
 
         [StringLength(50)]
-        public string Description { get; set; }
+        public string ResourceId { get; set; }
+
+        [Required]
+        [StringLength(10)]
+        public string Name { get; set; }
     }
 }

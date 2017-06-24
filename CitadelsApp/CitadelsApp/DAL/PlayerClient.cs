@@ -16,7 +16,12 @@ namespace CitadelsApp.DAL
 
         public void StartClientGame()
         {
-            MessageBox.Show("Игра началась!");
+            //MessageBox.Show("Игра началась!");
+        }
+
+        public void CreatePlayer(Wonder wonder)
+        {
+            MessageBox.Show("Я получил чудо: " + wonder.Name);
         }
     }
 }

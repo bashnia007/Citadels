@@ -192,6 +192,9 @@
     <None Include="Service References\DuplexReference\item1.xsd">
       <SubType>Designer</SubType>
     </None>
+    <None Include="Service References\DuplexReference\item2.xsd">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="Service References\OneWayReference\CitadelsApp.OneWayReference.Game.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>

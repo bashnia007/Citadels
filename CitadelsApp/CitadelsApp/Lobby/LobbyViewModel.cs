@@ -71,7 +71,7 @@ namespace CitadelsApp
 
             await Task.Run(() =>
             {
-                DuplexProxy.ConnectGame("Вася");
+                DuplexProxy.ConnectGame(_userId);
             });
             var gameViewModel = new GameViewModel();
             gameViewModel.Init();
@@ -108,7 +108,7 @@ namespace CitadelsApp
                 }*/
                 await Task.Run(() =>
                  {
-                     DuplexProxy.CreateGame("Петя");
+                     DuplexProxy.CreateGame(_userId);
                  });
                 var gameViewModel = new GameViewModel();
                 gameViewModel.Init();

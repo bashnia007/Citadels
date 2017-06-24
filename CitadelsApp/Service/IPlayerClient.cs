@@ -1,4 +1,5 @@
 ﻿using System.ServiceModel;
+using Service.Model;
 
 namespace Service
 {
@@ -21,5 +22,12 @@ namespace Service
         /// </summary>
         [OperationContract(IsOneWay = true)]
         void StartClientGame();
+
+        /// <summary>
+        /// Создание игрока для игры
+        /// </summary>
+        /// <param name="player"></param>
+        [OperationContract(IsOneWay = true)]
+        void CreatePlayer(Wonder wonder);
     }
 }

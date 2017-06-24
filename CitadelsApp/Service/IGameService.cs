@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.ServiceModel;
-using Service.DataBaseModel;
+using Service.Model;
 
 namespace Service
 {

@@ -1,4 +1,4 @@
-namespace Service.DataBaseModel
+namespace Service.Model
 {
     using System;
     using System.Collections.Generic;
@@ -6,13 +6,16 @@ namespace Service.DataBaseModel
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Data.Entity.Spatial;
 
-    [Table("Wonder")]
-    public partial class Wonder
+    [Table("CardType")]
+    public partial class CardType
     {
+        [DatabaseGenerated(DatabaseGeneratedOption.None)]
         public int Id { get; set; }
 
         [Required]
         [StringLength(50)]
         public string Name { get; set; }
+
+        public int? Color { get; set; }
     }
 }
